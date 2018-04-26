@@ -27,7 +27,7 @@ namespace Dimension.API
         }
     }
 
-    public class stageInterface //Where the boring stuff happen
+    public class Stage //Where the boring stuff happen
     {
         public static Structure fromStructureData(StructureData i_struct)
         {
@@ -42,8 +42,9 @@ namespace Dimension.API
             return S;
         } //converts structure data to structure
 
-        Stage stage = new Stage();
+        SimulationStage stage = new SimulationStage();
         Simulator Simulex = new Simulator();
+        Rdenderer Rendex = new Rdenderer();
 
         public int addStructure(StructureData i_StructData)
         {
@@ -66,6 +67,8 @@ namespace Dimension.API
                 throw new Exception("Empty stage inapplicable for transformation");
             }
         }
+
+        public void MapTexture(
 
         
     }

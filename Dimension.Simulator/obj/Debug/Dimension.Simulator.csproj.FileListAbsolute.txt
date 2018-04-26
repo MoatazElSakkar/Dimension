@@ -16,3 +16,12 @@ C:\Users\Moataz\Documents\Visual Studio 2010\Projects\Project Dimension\Dimensio
 C:\Users\Moataz\Documents\Visual Studio 2010\Projects\Project Dimension\Dimension.Simulator\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Moataz\Documents\Visual Studio 2010\Projects\Project Dimension\Dimension.Simulator\obj\Debug\Simulator.dll
 C:\Users\Moataz\Documents\Visual Studio 2010\Projects\Project Dimension\Dimension.Simulator\obj\Debug\Simulator.pdb
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\obj\Debug\Dimension.simulator.csprojResolveAssemblyReference.cache
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\obj\Debug\Simulator.dll
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\obj\Debug\Simulator.pdb
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\bin\Debug\Simulator.dll
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\bin\Debug\Simulator.pdb
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\bin\Debug\data.dll
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\bin\Debug\data.pdb
+C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.Simulator\bin\Debug\Dimension.LinearAlgebra.pdb

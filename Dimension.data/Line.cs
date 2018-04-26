@@ -13,5 +13,11 @@ namespace Dimension.data
             wireFrameSegment = new Point[2];
         }
 
+        public Line(Point a,Point b) //entering the point co-ordinates directly
+        {
+            wireFrameSegment = new Point[2];
+            wireFrameSegment[0] = a;
+            wireFrameSegment[1] = b;
+        }
     }
 }

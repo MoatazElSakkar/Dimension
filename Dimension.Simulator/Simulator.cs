@@ -13,7 +13,7 @@ namespace Dimension.simulator
     }
 
     
-    public class Stage
+    public class SimulationStage
     {
         public Dictionary<int, Structure> StageData = new Dictionary<int, Structure>(); //IDs vs strcutures
         public Dictionary<int, Point> Locations = new Dictionary<int, Point>(); //IDs vs Locations
@@ -29,7 +29,7 @@ namespace Dimension.simulator
             throw new NotImplementedException();
         }
 
-        public Stage SimulateTransformation(Stage S, Transformation T, object A)
+        public SimulationStage SimulateTransformation(SimulationStage S, Transformation T, object A)
         {
             throw new NotImplementedException();
         }

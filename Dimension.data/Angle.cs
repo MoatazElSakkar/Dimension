@@ -12,7 +12,7 @@ namespace Dimension.data
         public Angle(float theta)
         {
             //Boundries
-            value = theta;
+            value = theta*((float)Math.PI/180);
         }
 
         //Paththroughs that will be used to edit in case floating points floated south!

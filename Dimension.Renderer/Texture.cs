@@ -6,8 +6,15 @@ using System.Drawing;
 
 namespace Dimension.Renderer
 {
-    class Texture
+    public class Texture
     {
         public Bitmap TextureData;
+
+        public Texture(string path)
+        {
+            //Assertion..
+            TextureData = (Bitmap) Bitmap.FromFile(path);
+        }
+        //Some image processing mapping/Transformation functions..
     }
 }

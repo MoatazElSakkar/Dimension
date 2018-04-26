@@ -43,6 +43,7 @@ namespace Dimension.LinearAlgebra
             MatData[0, 0]=i_point.x;
             MatData[1, 0] = i_point.y;
             MatData[2, 0] = i_point.z;
+            MatData[3, 0] = 1;
         }
     }
 }
