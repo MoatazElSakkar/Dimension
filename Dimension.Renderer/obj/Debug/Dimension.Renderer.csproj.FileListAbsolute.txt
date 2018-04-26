@@ -1,0 +1,5 @@
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.Renderer\bin\Debug\Dimension.Renderer.dll
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.Renderer\bin\Debug\Dimension.Renderer.pdb
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.Renderer\obj\Debug\ResolveAssemblyReference.cache
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.Renderer\obj\Debug\Dimension.Renderer.dll
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.Renderer\obj\Debug\Dimension.Renderer.pdb

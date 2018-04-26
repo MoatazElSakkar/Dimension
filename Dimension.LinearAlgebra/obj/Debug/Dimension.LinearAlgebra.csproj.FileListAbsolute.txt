@@ -1,0 +1,7 @@
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\bin\Debug\Dimension.LinearAlgebra.dll
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\bin\Debug\Dimension.LinearAlgebra.pdb
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\obj\Debug\ResolveAssemblyReference.cache
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.dll
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.pdb
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\bin\Debug\data.dll
+c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\Dimension.LinearAlgebra\bin\Debug\data.pdb
