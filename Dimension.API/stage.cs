@@ -44,7 +44,7 @@ namespace Dimension.API
 
         SimulationStage stage = new SimulationStage();
         Simulator Simulex = new Simulator();
-        Rdenderer Rendex = new Rdenderer();
+        Renderer Rendex = new Renderer();
 
         public int addStructure(StructureData i_StructData)
         {
@@ -68,8 +68,13 @@ namespace Dimension.API
             }
         }
 
-        public void MapTexture(
+        public void MapTexture()
+        {
+        }
 
-        
+        public System.Drawing.Bitmap Render()
+        {
+            
+        }
     }
 }
