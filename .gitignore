@@ -1,6 +1,34 @@
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.scc
+*.cache
+Dimension.API/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Dimension.LinearAlgebra/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Dimension.Renderer/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Dimension.Simulator/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Dimension.Tween/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Dimension.data/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+DimensionStudio/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache 
 Project Dimension.sln
 Project Dimension.suo
 *.sln
 *.exe
-*.cache
-*.obj
