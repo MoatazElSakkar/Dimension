@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using Dimension.data;
 
@@ -10,7 +11,50 @@ namespace Dimension.LinearAlgebra
     {
         public static Matrix Multiply(Matrix Mx1, Matrix Mx2)
         {
-            throw new NotImplementedException();
+            Debug.Assert(Mx1.Columns == Mx2.Rows);
+
+            int outRows = Mx2.Rows;
+            int outColumns = Mx1.Columns;
+
+            ///Intialization of an empty data as preparation for the output Matrix
+
+            float [] tempo = new float [outRows * outColumns];
+
+            for(int i = 0; i < outRows; i++){
+
+                for(int j = 0; j < outColumns; j++){
+
+                    tempo[i * outColumns + j] = 0.0f;
+
+                }
+
+            }
+
+
+            Matrix outputMx = new Matrix(tempo, outRows, outColumns);
+
+            /// The Multiplication Part
+
+            int moveOnRow = Mx2.Rows;
+
+            for (int i = 0; i < outRows; i++)
+            {
+                for (int j = 0; j < outColumns; j++)
+                {
+
+                    for (int k = 0; k < moveOnRow; k++)
+                    {
+
+                        outputMx.MatData[i, j] = Mx1.MatData[i,k] * Mx2.MatData[k,j];
+
+                    }
+
+                }
+
+            }
+
+            return outputMx;
+            
         }
     }
 
@@ -27,7 +71,7 @@ namespace Dimension.LinearAlgebra
             {
                 for (int j = 0; j < i_Rows; j++)
                 {
-                    MatData[i,j]=entryData[i + j];
+                    MatData[i,j]=entryData[i * Columns + j];
                 }
             }
         }
