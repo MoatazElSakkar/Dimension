@@ -24,7 +24,7 @@ namespace Dimension.stub
         {
             S = new Stage();
 
-            //Test Case 1 the Red triangle
+            //Test Case 1 the Red (Azure) triangle
             List<Point> TrianglePointset = new List<Point>();
             TrianglePointset.Add(new Point(0, 100, 0));
             TrianglePointset.Add(new Point(-100, -100, 0));
@@ -35,6 +35,9 @@ namespace Dimension.stub
             
         }
 
+        //Function that converts scattered points to lines
+        //TODO: Morphs implmentation
+        //To be moved to the API afterwards
         List<Bound> FromCyclicToShape(List<Point> Lines)
         {
             List<Bound> OutBound = new List<Bound>();
@@ -47,6 +50,8 @@ namespace Dimension.stub
             }
             return OutBound;
         }
+
+
 
         private void Test_Click(object sender, EventArgs e)
         {

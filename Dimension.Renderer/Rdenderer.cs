@@ -9,13 +9,13 @@ namespace Dimension.Renderer
 {
     public class Renderer
     {
-        public int stageWpx, stageHpx; //Width and height in pixels defaults at 640x480.
+        public int stageWpx, stageHpx; //Width and height in pixels defaults at 720x360.
 
         public Dictionary<int[], Texture> textureData = new Dictionary<int[], Texture>();
 
         //Some image processing/Light source simulation/Bitmap composition goes here..
 
-        public Bitmap Outbound;
+        public Bitmap Outbound; //Output Bitmap
 
         public Renderer(int a, int b)
         {
@@ -24,6 +24,7 @@ namespace Dimension.Renderer
             Outbound = new Bitmap(a, b);
         }
 
+        //Places points only as of now
         public Bitmap GenerateStageView(Projection input)
         {
             Outbound = new Bitmap(stageWpx, stageHpx);
@@ -48,15 +49,8 @@ namespace Dimension.Renderer
 
         void createOutline(Structure S)
         {
-            foreach (object Obj in S.WireFrame.Values)
-            {
-                Bound B = (Bound)Obj;
-                foreach (Dimension.data.Point P in B.wireFrameSegment)
-                {
-                    Outbound.SetPixel((int) P.x,(int) P.y, Color.Red); //Note to Self: Make Projections operate on integers
-
-                }
-            }
+            //Will fill in the lines between 2 points using
+            //Equation y=mx+C;
         }
     }
 }

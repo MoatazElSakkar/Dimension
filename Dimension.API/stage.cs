@@ -78,7 +78,7 @@ namespace Dimension.API
 
         public System.Drawing.Bitmap Render()
         {
-            Projector Projectex = new Projector(stage.StageData,stage.Locations);
+            Projector Projectex = new Projector(stage.StageData,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
             return Rendex.GenerateStageView(Projectex.GeneratePorjection());
         }
     }

@@ -10,20 +10,26 @@ namespace Dimension.Renderer
         {
             //Converting that fancy 3D graph to some simple 2D points
 
-            public List <Structure> OuterSet;
-            Dictionary<int, Point> Locations;
+            int stageWpx, stageHpx;
 
+            public List <Structure> OuterSet; //Shapes data
+            Dictionary<int, Point> Locations; //Locations of the centers of the shapes on the stage
+
+            //Will be used in clipping if we ended up using masks
             Dictionary<int,Point> RedrawMask=new Dictionary<int,Point>();
 
-            public Projector(List <Structure> a,Dictionary<int, Point> b)
+            public Projector(List <Structure> a,Dictionary<int, Point> b,int W,int H)
             {
                 OuterSet = a;
                 Locations = b;
+                stageWpx = W;
+                stageHpx = H;
             }
 
             public Projection GeneratePorjection()
             {
-                List<Structure> Sillhouettes =  ProjectShadows(Quicksort(OuterSet.ToList()));
+                //We quick sort by MaxZ for renderer's convenience and clipping in the future
+                List<Structure> Sillhouettes = ProjectShadows(Quicksort(OuterSet.ToList()));
                 Projection stageShadow = new Projection();
                 stageShadow.Sillhouette = Sillhouettes;
                 return stageShadow;
@@ -42,6 +48,7 @@ namespace Dimension.Renderer
                         List<Point> nWireframeSegment=new List<Point>();
                         foreach (Point P in B.wireFrameSegment)
                         {
+                            //Weak Prespective Projection algorithm (still untested on 3D)
                             int u, v;
                             if (P.z != 0)
                             {
@@ -55,11 +62,11 @@ namespace Dimension.Renderer
                             }
                             v = v * -1;
 
-                            u += 720 / 2;
-                            v += 360 / 2;
-
+                            u += stageWpx / 2;
+                            v += stageHpx / 2;
 
                             nWireframeSegment.Add(new Point(u,v,0));
+                            //Note to self create an int point "Projected Point"
                         }
                         B.wireFrameSegment=nWireframeSegment.ToArray();
                         nBound.Add(kvp.Key,B);
@@ -72,6 +79,7 @@ namespace Dimension.Renderer
                 return OutBound;
             }
 
+            //A generic QuickSort function
             public static List<Structure> Quicksort(List<Structure> Entry)
             {
 
