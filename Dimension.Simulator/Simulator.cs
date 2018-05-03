@@ -15,7 +15,7 @@ namespace Dimension.simulator
     
     public class SimulationStage
     {
-        public Dictionary<int, Structure> StageData = new Dictionary<int, Structure>(); //IDs vs strcutures
+        public List<Structure> StageData = new List<Structure>(); //List Of Structures
         public Dictionary<int, Point> Locations = new Dictionary<int, Point>(); //IDs vs Locations
         public int curID = 0;
 

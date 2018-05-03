@@ -19,18 +19,18 @@ namespace Dimension.stub
         {
             InitializeComponent();
         }
-
+        Stage S;
         private void Form1_Load(object sender, EventArgs e)
         {
-            Stage S = new Stage();
+            S = new Stage();
 
             //Test Case 1 the Red triangle
             List<Point> TrianglePointset = new List<Point>();
-            TrianglePointset.Add(new Point(1, 1, 0));
-            TrianglePointset.Add(new Point(-1, -1, 0));
-            TrianglePointset.Add(new Point(1, 1, 0));
-
-            int triangleID = S.addStructure(new StructureData(false, new data.Point(0, 0, 0), FromCyclicToShape(TrianglePointset).ToArray()));
+            TrianglePointset.Add(new Point(0, 100, 0));
+            TrianglePointset.Add(new Point(-100, -100, 0));
+            TrianglePointset.Add(new Point(100, -100, 0));
+            StructureData SD=new StructureData(false, new data.Point(0, 0, 0), FromCyclicToShape(TrianglePointset).ToArray());
+            int triangleID = S.addStructure(SD);
 
             
         }
@@ -47,5 +47,13 @@ namespace Dimension.stub
             }
             return OutBound;
         }
+
+        private void Test_Click(object sender, EventArgs e)
+        {
+            System.Drawing.Bitmap B = S.Render();
+            preview.Image = B;
+        }
+
+
     }
 }

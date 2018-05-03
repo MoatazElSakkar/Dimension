@@ -10,12 +10,12 @@ namespace Dimension.Renderer
         {
             //Converting that fancy 3D graph to some simple 2D points
 
-            public Dictionary<int, Structure> OuterSet;
+            public List <Structure> OuterSet;
             Dictionary<int, Point> Locations;
 
             Dictionary<int,Point> RedrawMask=new Dictionary<int,Point>();
 
-            public Projector(Dictionary<int, Structure> a,Dictionary<int, Point> b)
+            public Projector(List <Structure> a,Dictionary<int, Point> b)
             {
                 OuterSet = a;
                 Locations = b;
@@ -23,12 +23,7 @@ namespace Dimension.Renderer
 
             public Projection GeneratePorjection()
             {
-                foreach (KeyValuePair<int,Structure> KVP in OuterSet)
-                {
-                    KVP.Value.ID=KVP.Key;
-                }
-
-                List<Structure> Sillhouettes =  ProjectShadows(Quicksort(OuterSet.Values.ToList()));
+                List<Structure> Sillhouettes =  ProjectShadows(Quicksort(OuterSet.ToList()));
                 Projection stageShadow = new Projection();
                 stageShadow.Sillhouette = Sillhouettes;
                 return stageShadow;
@@ -47,12 +42,21 @@ namespace Dimension.Renderer
                         List<Point> nWireframeSegment=new List<Point>();
                         foreach (Point P in B.wireFrameSegment)
                         {
-                            float u=P.x/P.z;
-                            float v=P.y/P.z;
+                            int u, v;
+                            if (P.z != 0)
+                            {
+                                u = (int)(P.x / P.z);
+                                v = (int)(P.y / P.z);
+                            }
+                            else
+                            {
+                                u = (int)(P.x);
+                                v = (int)(P.y);
+                            }
                             v = v * -1;
 
                             u += 720 / 2;
-                            v += 480 / 2;
+                            v += 360 / 2;
 
 
                             nWireframeSegment.Add(new Point(u,v,0));

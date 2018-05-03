@@ -13,6 +13,7 @@ namespace Dimension.API
         public bool Composite;
         public object[] pointSet;
         public Point Location;
+        public int ID;
 
         public StructureData(bool i_composite, Point i_centerLocation, Bound[] i_pointSet) //Constructor for shapes
         {
@@ -34,21 +35,24 @@ namespace Dimension.API
             int LocalID = 0;
             Structure S = new Structure();
             S.Composite = i_struct.Composite;
+            S.WireFrame = new Dictionary<int, object>();
             foreach (object obj in i_struct.pointSet)
             {
                 S.WireFrame.Add(LocalID++, obj);
             }
-            S.updateCenterPoint();
+            S.ID = i_struct.ID;
+            //S.updateCenterPoint();
             return S;
         } //converts structure data to structure
 
         SimulationStage stage = new SimulationStage();
         Simulator Simulex = new Simulator();
-        Renderer Rendex = new Renderer();
+        Renderer.Renderer Rendex = new Renderer.Renderer(720,360);
 
         public int addStructure(StructureData i_StructData)
         {
-            stage.StageData.Add(stage.curID, fromStructureData(i_StructData));
+            i_StructData.ID = stage.curID;
+            stage.StageData.Add(fromStructureData(i_StructData));
             return stage.curID++;
         }
 
@@ -74,7 +78,8 @@ namespace Dimension.API
 
         public System.Drawing.Bitmap Render()
         {
-            
+            Projector Projectex = new Projector(stage.StageData,stage.Locations);
+            return Rendex.GenerateStageView(Projectex.GeneratePorjection());
         }
     }
 }
