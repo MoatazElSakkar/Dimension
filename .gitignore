@@ -2,3 +2,5 @@ Project Dimension.sln
 Project Dimension.suo
 *.sln
 *.exe
+*.cache
+*.obj
