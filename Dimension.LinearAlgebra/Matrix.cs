@@ -35,7 +35,7 @@ namespace Dimension.LinearAlgebra
 
             /// The Multiplication Part
 
-            int moveOnRow = Mx2.Rows;
+            int moveOnRow = Mx1.Rows;
 
             for (int i = 0; i < outRows; i++)
             {
