@@ -142,7 +142,7 @@ namespace Dimension.simulator
                 {
                     Matrix pointMatrix = new Matrix(Pt);
 
-                    pointMatrix = LinearAlgebra.LinearAlgebra.Multiply(pointMatrix, multMatrix);
+                    pointMatrix = LinearAlgebra.LinearAlgebra.Multiply(multMatrix, pointMatrix);
 
                     ///Assignment of Points
 
