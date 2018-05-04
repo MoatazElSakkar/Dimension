@@ -16,7 +16,7 @@ namespace Dimension.simulator
     
     public class SimulationStage
     {
-        public Dictionary<int, Structure> StageData = new Dictionary<int, Structure>(); //IDs vs strcutures
+        public List<Structure> StageData = new List<Structure>(); //IDs vs strcutures
         public Dictionary<int, Point> Locations = new Dictionary<int, Point>(); //IDs vs Locations
         public int curID = 0;
 
@@ -86,11 +86,11 @@ namespace Dimension.simulator
             else if (T == Transformation.Scaling)
             {
 
-                float scaleX = float.Parse(A[0].ToString());
+                float scaleX = float.Parse (Convert.ToString(A[0]));
 
-                float scaleY = float.Parse(A[1].ToString());
+                float scaleY = float.Parse(Convert.ToString(A[1]));
 
-                float scaleZ = float.Parse(A[2].ToString());
+                float scaleZ = float.Parse(Convert.ToString(A[2]));
 
                 float[,] bufferData = new float[4, 4];
 
@@ -142,7 +142,7 @@ namespace Dimension.simulator
                 {
                     Matrix pointMatrix = new Matrix(Pt);
 
-                    pointMatrix = LinearAlgebra.LinearAlgebra.Multiply(pointMatrix, multMat);
+                    pointMatrix = LinearAlgebra.LinearAlgebra.Multiply(pointMatrix, multMatrix);
 
                     ///Assignment of Points
 
@@ -158,9 +158,9 @@ namespace Dimension.simulator
             return S;
         }
 
-        public SimulationStage SimulateTransformation(SimulationStage S, Transformation T, object A)
-        {
-            throw new NotImplementedException();
-        }
+        //public SimulationStage SimulateTransformation(SimulationStage S, Transformation T, object A)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

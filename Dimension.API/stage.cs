@@ -47,7 +47,7 @@ namespace Dimension.API
             return stage.curID++;
         }
 
-        public void Transform(Transformation T, object value) //Rotation:angle, Translation point, scaling scalar xD
+        public void Transform(Transformation T, params object[] value) //Rotation:angle, Translation point, scaling scalar xD
         {
             if (stage.StageData.Count == 1) //main case
             {
@@ -55,7 +55,7 @@ namespace Dimension.API
             }
             else if (stage.StageData.Count > 1) //Optional
             {
-                stage = Simulex.SimulateTransformation(stage, T, value);
+                //stage = Simulex.SimulateTransformation(stage, T, value);
             }
             else
             {

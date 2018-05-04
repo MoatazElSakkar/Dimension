@@ -63,6 +63,8 @@ namespace Dimension.LinearAlgebra
         public Matrix() { }
         public Matrix(float[] entryData, int i_Columns, int i_Rows) //Entry as a single array
         {
+            Columns = i_Columns;
+            Rows = i_Rows;
             //Conversion to 2D array
             MatData = new float[i_Rows,i_Columns];
             for (int i = 0; i < i_Columns; i++)
@@ -76,12 +78,16 @@ namespace Dimension.LinearAlgebra
 
         public Matrix(float[,] entryData) //Entry as a single array
         {
+            Columns = entryData.GetLength(1);
+            Rows = entryData.GetLength(0);
             MatData = entryData;
         }
 
         public Matrix(Point i_point) //Entry as a Dimension Point
         {
             MatData = new float[4, 1]; //a point is represented as 4x1 matrix in transformation
+            Columns = 1;
+            Rows = 4;
             MatData[0, 0]=i_point.x;
             MatData[1, 0] = i_point.y;
             MatData[2, 0] = i_point.z;
