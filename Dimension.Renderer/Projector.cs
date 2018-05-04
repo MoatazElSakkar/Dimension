@@ -41,12 +41,11 @@ namespace Dimension.Renderer
 
                 foreach (Structure S in Entry)
                 {
-                    Dictionary<int,object> nBound=new Dictionary<int,object>();
-                    foreach (KeyValuePair<int,object> kvp in S.WireFrame)
+                    List<Triangle> nBound = new List<Triangle>();
+                    foreach (Triangle T in S.WireFrame)
                     {
-                        Bound B = (Bound) kvp.Value;
                         List<Point> nWireframeSegment=new List<Point>();
-                        foreach (Point P in B.wireFrameSegment)
+                        foreach (Point P in T.wireframeSegment)
                         {
                             //Weak Prespective Projection algorithm (still untested on 3D)
                             int u, v;
@@ -68,8 +67,8 @@ namespace Dimension.Renderer
                             nWireframeSegment.Add(new Point(u,v,0));
                             //Note to self create an int point "Projected Point"
                         }
-                        B.wireFrameSegment=nWireframeSegment.ToArray();
-                        nBound.Add(kvp.Key,B);
+                        T.wireframeSegment=nWireframeSegment.ToArray();
+                        nBound.Add(T);
                     }
                     Structure nS=S;
                     nS.WireFrame=nBound;

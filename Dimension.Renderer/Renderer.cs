@@ -33,12 +33,11 @@ namespace Dimension.Renderer
                     Outbound.SetPixel(i, j, Color.DarkBlue);
             foreach (Structure S in input.Sillhouette)
             {
-                foreach (object obj in S.WireFrame.Values)
+                foreach (Triangle T in S.WireFrame)
                 {
-                    Bound B = (Bound) obj;
-                    for (int i = 0; i < B.wireFrameSegment.Count();i++)
+                    for (int i = 0; i < T.wireframeSegment.Count();i++)
                     {
-                        Outbound.SetPixel((int)B.wireFrameSegment[i].x, (int)B.wireFrameSegment[i].y, Color.Aqua);
+                        Outbound.SetPixel((int)T.wireframeSegment[i].x, (int)T.wireframeSegment[i].y, Color.Aqua);
 
 
                     }

@@ -17,17 +17,6 @@ namespace Dimension.data
 
         }
 
-        public Shape(Bound[] i_bounds)
-        {
-            foreach (Bound B in i_bounds)
-            {
-                bind(B);
-            }
-        }
-
-
-
-
         public override int bind(object S)
         {
             throw new NotImplementedException();

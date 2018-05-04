@@ -22,41 +22,24 @@ namespace Dimension.stub
         Stage S;
         private void Form1_Load(object sender, EventArgs e)
         {
-            S = new Stage();
 
+            S = new Stage();
             //Test Case 1 the Red (Azure) triangle
             List<Point> TrianglePointset = new List<Point>();
             TrianglePointset.Add(new Point(0, 100, 0));
             TrianglePointset.Add(new Point(-100, -100, 0));
-            TrianglePointset.Add(new Point(100, -100, 0));
-            StructureData SD=new StructureData(false, new data.Point(0, 0, 0), FromCyclicToShape(TrianglePointset).ToArray());
+            //TrianglePointset.Add(new Point(100, -100, 0));
+            TrianglePointset.Add(new Point(-50, 0, 0));
+            StructureData SD=new StructureData(new data.Point(0, 0, 0),new Triangle[] {new Triangle(TrianglePointset[0],TrianglePointset[1],TrianglePointset[2])});
             int triangleID = S.addStructure(SD);
-
-            
         }
-
-        //Function that converts scattered points to lines
-        //TODO: Morphs implmentation
-        //To be moved to the API afterwards
-        List<Bound> FromCyclicToShape(List<Point> Lines)
-        {
-            List<Bound> OutBound = new List<Bound>();
-            for(int i=0;i<Lines.Count;i++)
-            {
-                if (i < Lines.Count - 1)
-                    OutBound.Add(new Line(Lines[i], Lines[i + 1]));
-                else
-                    OutBound.Add(new Line(Lines[i], Lines[0]));
-            }
-            return OutBound;
-        }
-
 
 
         private void Test_Click(object sender, EventArgs e)
         {
             System.Drawing.Bitmap B = S.Render();
             preview.Image = B;
+
         }
 
 

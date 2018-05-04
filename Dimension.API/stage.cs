@@ -10,21 +10,13 @@ namespace Dimension.API
 {
     public class StructureData
     {
-        public bool Composite;
-        public object[] pointSet;
+        public Triangle[] wireframeData;
         public Point Location;
         public int ID;
 
-        public StructureData(bool i_composite, Point i_centerLocation, Bound[] i_pointSet) //Constructor for shapes
+        public StructureData(Point i_centerLocation, Triangle[] i_wireframeSet) //Constructor for shapes
         {
-            Composite = i_composite;
-            pointSet = i_pointSet;
-        }
-
-        public StructureData(bool i_composite,Point i_centerLocation, Shape[] i_pointSet)//Constructor for compositions
-        {
-            Composite = i_composite;
-            pointSet = i_pointSet;
+            wireframeData = i_wireframeSet;
         }
     }
 
@@ -34,13 +26,12 @@ namespace Dimension.API
         {
             int LocalID = 0;
             Structure S = new Structure();
-            S.Composite = i_struct.Composite;
-            S.WireFrame = new Dictionary<int, object>();
-            foreach (object obj in i_struct.pointSet)
+            S.WireFrame = new List<Triangle>();
+            foreach (Triangle T in i_struct.wireframeData)
             {
-                S.WireFrame.Add(LocalID++, obj);
+                S.WireFrame.Add(T);
             }
-            S.ID = i_struct.ID;
+            S.ID = LocalID++;
             //S.updateCenterPoint();
             return S;
         } //converts structure data to structure

@@ -5,16 +5,48 @@ using System.Text;
 
 namespace Dimension.data
 {
-    class Triangle
+    public class Triangle
     {
-        public Point[] Wireframe =new Point[3];
+        public Point[] wireframeSegment =new Point[3];
 
+        public int ID;
 
         public Triangle(Point a, Point b, Point c)
         {
-            Wireframe[0] = a;
-            Wireframe[1] = b;
-            Wireframe[2] = c;
+            if (!AssertCyclicFeature(a, b, c))
+            {
+                throw new Exception("Invalid Triangle intialization");
+            }
+            wireframeSegment[0] = a;
+            wireframeSegment[1] = b;
+            wireframeSegment[2] = c;
+        }
+
+        public Triangle(Point[] Entry)
+        {
+            if (!AssertCyclicFeature(Entry))
+            {
+                throw new Exception("Invalid Triangle intialization");
+            }
+            wireframeSegment = Entry;
+        }
+
+        bool AssertCyclicFeature(Point a,Point b,Point c)
+        {
+            //check if a b c are actually connected
+            return true;
+        }
+
+        bool AssertCyclicFeature(Point[] Entry)
+        {
+            if (Entry.Length != 3)
+            {
+                return false;
+            }
+
+            //check if a b c are actually connected
+
+            return true;
         }
     }
 }

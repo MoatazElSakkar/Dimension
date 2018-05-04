@@ -7,8 +7,8 @@ namespace Dimension.data
 {
     public class Structure
     {
-        public Dictionary<int, object> WireFrame;
-        public bool Composite;
+        public List <Triangle> WireFrame;
+
         public Point CenterPoint=new Point(0,0,0); //avg of all points a 3D space center
 
         public int ID;
@@ -21,10 +21,9 @@ namespace Dimension.data
             float ZScore = 0.0F;
             int count = 0;
 
-            foreach (object obj in WireFrame.Values)
+            foreach (Triangle T in WireFrame)
             {
-                Bound B = (Bound)obj;
-                foreach (Point P in B.wireFrameSegment)
+                foreach (Point P in T.wireframeSegment)
                 {
                     ZScore += P.z;
                     count++;
@@ -37,10 +36,9 @@ namespace Dimension.data
         {
             float curMax = float.MinValue;
 
-            foreach (object obj in WireFrame.Values)
+            foreach (Triangle T in WireFrame)
             {
-                Bound B = (Bound)obj;
-                foreach (Point P in B.wireFrameSegment)
+                foreach (Point P in T.wireframeSegment)
                 {
                     if (P.z > curMax)
                     {
