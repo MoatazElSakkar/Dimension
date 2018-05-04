@@ -60,7 +60,7 @@ namespace Dimension.LinearAlgebra
     {
         public float[,] MatData;
         public int Rows, Columns;
-
+        public Matrix() { }
         public Matrix(float[] entryData, int i_Columns, int i_Rows) //Entry as a single array
         {
             //Conversion to 2D array
