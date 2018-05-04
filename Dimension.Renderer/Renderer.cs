@@ -36,15 +36,28 @@ namespace Dimension.Renderer
             {
                 foreach (Triangle T in S.WireFrame)
                 {
-                    for (int i = 0; i < T.wireframeSegment.Count()-1;i++)
+                    for (int i = 0; i < T.wireframeSegment.Count();i++)
                     {
                         //Outbound.SetPixel((int)T.wireframeSegment[i].x, (int)T.wireframeSegment[i].y, Color.Aqua);
-                        LineEquation curLine = new LineEquation(T.wireframeSegment[i], T.wireframeSegment[i + 1]);
+                        LineEquation curLine = new LineEquation(T.wireframeSegment[i], T.wireframeSegment[(i + 1)%T.wireframeSegment.Count()]);
                         Dimension.data.Point curPoint = T.wireframeSegment[i];
+                        Color[] colors ={
+                                            Color.Lime,
+                                            Color.Pink,
+                                            Color.Green,
+                                       };
                         for (int j = 0; j < curLine.length; j++)
                         {
-                            Outbound.SetPixel((int)curPoint.x, (int) curPoint.y, Color.Aqua);
-                            curPoint=curLine.calculateNextPoint(curPoint);
+                            Outbound.SetPixel((int)curPoint.x, (int) curPoint.y, colors[i]);
+                            Dimension.data.Point tmPoint = curLine.calculateNextPoint(curPoint);
+                            if (tmPoint == curPoint)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                curPoint = tmPoint;
+                            }
                         }
                     }
                 }

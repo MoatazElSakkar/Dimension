@@ -49,7 +49,7 @@ namespace Dimension.Renderer
                         {
                             //Weak Prespective Projection algorithm (still untested on 3D)
                             int u, v;
-                            if (P.z < 0)
+                            if (P.z != 0)
                             {
                                 u = (int)(P.x / P.z);
                                 v = (int)(P.y / P.z);
@@ -64,13 +64,6 @@ namespace Dimension.Renderer
                             v = v * -1;
                             u += stageWpx / 2;
                             v += stageHpx / 2;
-
-                            //Following branch is highly experimental
-                            if (P.z > 0)
-                            {
-                                u += (int) P.z;
-                                v += (int) P.z;
-                            }
 
                             nWireframeSegment.Add(new Point(u,v,0));
                             //Note to self create an int point "Projected Point"

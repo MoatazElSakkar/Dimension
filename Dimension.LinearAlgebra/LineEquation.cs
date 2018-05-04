@@ -22,10 +22,10 @@ namespace Dimension.LinearAlgebra
 
         public int intercept; //Intersection with Y axis (or X axis if inverted)
 
-        bool inverted = false; //Inverts operation in case the slope of the line is undefined
-                              //facilitates drawing horizontal lines
+        bool vertical = false;
 
         Point intialPoint;
+        Point FinalPoint;
 
         public int length;
 
@@ -35,16 +35,17 @@ namespace Dimension.LinearAlgebra
         public LineEquation(Point a, Point b)
         {
             intialPoint = a;
+            FinalPoint = b;
             int yDelta=(int)(b.y - a.y);
             int xDelta=(int)(b.x - a.x);
-            if (yDelta != 0)
+            if (xDelta != 0)
             {
                 Slope = yDelta / xDelta;
             }
             else
             {
-                inverted = true;
-                Slope = xDelta / yDelta;
+                vertical = true;
+                Slope = 0;
             }
             CalculateIntercept();
             CalculateLength(a,b);
@@ -53,14 +54,13 @@ namespace Dimension.LinearAlgebra
 
         void CalculateIntercept()
         {
-            if (!inverted)
+            if (!vertical)
             {
                 intercept = (int)(intialPoint.y - (Slope * intialPoint.x));
             }
             else
             {
-                //intercept = (int)(intialPoint.x-(intialPoint.y / Slope));
-                intercept = (int)(intialPoint.x - (Slope * intialPoint.y));
+                intercept = 0;
             }
         }
 
@@ -73,7 +73,25 @@ namespace Dimension.LinearAlgebra
 
         void CalculateDirection(Point a, Point b)
         {
-            if (!inverted)
+            if (!vertical)
+            {
+                if (a.x > b.x)
+                {
+                    monotony = Direction.right;
+                    direction = -1;
+                }
+                else if (a.x < b.x)
+                {
+                    monotony = Direction.left;
+                    direction = 1;
+                }
+                else
+                {
+                    throw new Exception("Duplicate point exception");
+                }
+
+            }
+            else
             {
                 if (a.y > b.y)
                 {
@@ -90,40 +108,31 @@ namespace Dimension.LinearAlgebra
                     throw new Exception("Duplicate point exception");
                 }
             }
-            else
-            {
-                if (a.x > b.x)
-                {
-                    monotony = Direction.right;
-                    direction = 1;
-                }
-                else if (a.y < b.y)
-                {
-                    monotony = Direction.left;
-                    direction = -1;
-                }
-                else
-                {
-                    throw new Exception("Duplicate point exception");
-                }
-            }
 
         }
 
         public Point calculateNextPoint(Point P)
         {
             float nY, nX;
-            if (!inverted)
+            if (!vertical)
             {
-                nY = P.y + direction;
-                nX = Map(nY);
+                if (P.x == FinalPoint.x)
+                {
+                    return P;
+                }
+                nX = P.x + direction;
+                nY = Map(P.x);
             }
             else
             {
-                nX = P.x + direction;
-                nY = Map(nX);
+                if (P.y == FinalPoint.y)
+                {
+                    return P;
+                }
+                nY = P.y + direction;
+                nX = P.x;
             }
-            return new Point(nY, nX, 0);
+            return new Point(nX, nY, 0);
         }
 
         float Map(float i)

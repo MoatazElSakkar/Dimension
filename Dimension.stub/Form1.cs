@@ -26,7 +26,7 @@ namespace Dimension.stub
             S = new Stage();
             //Test Case 1 the Red (Azure) triangle
             List<Point> TrianglePointset = new List<Point>();
-            TrianglePointset.Add(new Point(0, 100, 0));
+            TrianglePointset.Add(new Point(0, 200, 3));
             TrianglePointset.Add(new Point(-100, -100, 0));
             //TrianglePointset.Add(new Point(100, -100, 0));
             TrianglePointset.Add(new Point(100, -100, 0));
