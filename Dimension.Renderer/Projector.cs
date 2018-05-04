@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dimension.data;
+using Dimension.LinearAlgebra;
 
 namespace Dimension.Renderer
 {
@@ -47,27 +48,43 @@ namespace Dimension.Renderer
                         List<Point> nWireframeSegment=new List<Point>();
                         foreach (Point P in T.wireframeSegment)
                         {
+                            #region WeakPrespective <Commented>
                             //Weak Prespective Projection algorithm (still untested on 3D)
-                            int u, v;
-                            if (P.z != 1)
-                            {
-                                u = (int)(P.x / P.z);
-                                v = (int)(P.y / P.z);
+                            //int u, v;
+                            //if (P.z != 1)
+                            //{
+                            //    u = (int)(P.x / P.z);
+                            //    v = (int)(P.y / P.z);
 
-                            }
-                            else
-                            {
-                                u = (int)(P.x)/2;
-                                v = (int)(P.y)/2;
-                            }
+                            //}
+                            //else
+                            //{
+                            //    u = (int)(P.x)/2;
+                            //    v = (int)(P.y)/2;
+                            //}
 
-                            v = v * -1;
+                            //v = v * -1;
 
-                            u += stageWpx / 2;
-                            v += stageHpx / 2;
+                            //u += stageWpx / 2;
+                            //v += stageHpx / 2;
 
-                            nWireframeSegment.Add(new Point(u,v,0));
+                            //nWireframeSegment.Add(new Point(u,v,0));
                             //Note to self create an int point "Projected Point"
+                            #endregion
+
+                            //Orthogonal Projection
+                            Matrix Mat = new Matrix(new float[3,3]{
+                            {1,0,0},
+                            {0,1,0},
+                            {0,0,0},
+                            });
+
+                            Matrix PointMatrix = new Matrix(new float[1,3]{
+                            {P.x,P.y,P.z}
+                            }
+                            );
+                            LinearAlgebra.LinearAlgebra.Multiply(PointMatrix,Mat);
+
                         }
                         T.wireframeSegment=nWireframeSegment.ToArray();
                         nBound.Add(T);
