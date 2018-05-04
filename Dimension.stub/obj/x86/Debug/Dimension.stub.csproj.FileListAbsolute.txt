@@ -14,3 +14,5 @@ C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.stub\ob
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.stub\obj\x86\Debug\Dimension.stub.csproj.GenerateResource.Cache
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.stub\obj\x86\Debug\Dimension.stub.exe
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.stub\obj\x86\Debug\Dimension.stub.pdb
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.stub\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.stub\bin\Debug\Dimension.LinearAlgebra.pdb

@@ -53,6 +53,10 @@
       <Project>{7A30898A-CE63-4464-AE0E-C1B6A3C1FA2B}</Project>
       <Name>Dimension.data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dimension.LinearAlgebra\Dimension.LinearAlgebra.csproj">
+      <Project>{E5BCB68D-7CF2-4D36-95C0-2DF644EF8D80}</Project>
+      <Name>Dimension.LinearAlgebra</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />

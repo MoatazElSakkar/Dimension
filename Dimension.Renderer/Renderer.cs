@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using Dimension.data;
+using Dimension.LinearAlgebra;
 
 namespace Dimension.Renderer
 {
@@ -35,11 +36,16 @@ namespace Dimension.Renderer
             {
                 foreach (Triangle T in S.WireFrame)
                 {
-                    for (int i = 0; i < T.wireframeSegment.Count();i++)
+                    for (int i = 0; i < T.wireframeSegment.Count()-1;i++)
                     {
-                        Outbound.SetPixel((int)T.wireframeSegment[i].x, (int)T.wireframeSegment[i].y, Color.Aqua);
-
-
+                        //Outbound.SetPixel((int)T.wireframeSegment[i].x, (int)T.wireframeSegment[i].y, Color.Aqua);
+                        LineEquation curLine = new LineEquation(T.wireframeSegment[i], T.wireframeSegment[i + 1]);
+                        Dimension.data.Point curPoint = T.wireframeSegment[i];
+                        for (int j = 0; j < curLine.length; j++)
+                        {
+                            Outbound.SetPixel((int)curPoint.x, (int) curPoint.y, Color.Aqua);
+                            curPoint=curLine.calculateNextPoint(curPoint);
+                        }
                     }
                 }
             }

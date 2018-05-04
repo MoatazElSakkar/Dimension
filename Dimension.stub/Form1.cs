@@ -29,7 +29,7 @@ namespace Dimension.stub
             TrianglePointset.Add(new Point(0, 100, 0));
             TrianglePointset.Add(new Point(-100, -100, 0));
             //TrianglePointset.Add(new Point(100, -100, 0));
-            TrianglePointset.Add(new Point(-50, 0, 0));
+            TrianglePointset.Add(new Point(100, -100, 0));
             StructureData SD=new StructureData(new data.Point(0, 0, 0),new Triangle[] {new Triangle(TrianglePointset[0],TrianglePointset[1],TrianglePointset[2])});
             int triangleID = S.addStructure(SD);
         }
