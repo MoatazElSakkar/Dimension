@@ -34,3 +34,12 @@ C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Simulat
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Simulator\obj\Debug\Dimension.simulator.csprojResolveAssemblyReference.cache
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Simulator\obj\Debug\Simulator.dll
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Simulator\obj\Debug\Simulator.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\obj\Debug\Dimension.simulator.csprojResolveAssemblyReference.cache
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\obj\Debug\Simulator.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\bin\Debug\Simulator.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\bin\Debug\Simulator.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\bin\Debug\data.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\bin\Debug\data.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Simulator\obj\Debug\Simulator.pdb

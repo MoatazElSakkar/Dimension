@@ -33,3 +33,16 @@ C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.API\bin
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.API\bin\Debug\Simulator.pdb
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.API\bin\Debug\Dimension.LinearAlgebra.dll
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.API\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Dimension.API.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Dimension.API.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\data.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Dimension.Renderer.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Simulator.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\data.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Dimension.Renderer.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Simulator.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\obj\Debug\Dimension.API.csprojResolveAssemblyReference.cache
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\obj\Debug\Dimension.API.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.API\obj\Debug\Dimension.API.pdb

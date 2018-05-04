@@ -19,3 +19,10 @@ C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearA
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.csprojResolveAssemblyReference.cache
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.dll
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\bin\Debug\data.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\bin\Debug\data.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.csprojResolveAssemblyReference.cache
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.pdb

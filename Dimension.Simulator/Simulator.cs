@@ -28,19 +28,8 @@ namespace Dimension.simulator
         public Structure SimulateTransformation(Structure S,Transformation T, params object[] A)
         {
 
-<<<<<<< HEAD
-            Matrix multMat;
-            
-            if (T == Transformation.Rotation)
-            {
-                Angle rotationAngle = new Angle(float.Parse(A.ToString()));
-
-                for (; ; )
-                {
-
-                }
-                
-=======
+         
+       
             Matrix multMatrix = new Matrix();
             
             if (T == Transformation.Rotation)
@@ -95,17 +84,10 @@ namespace Dimension.simulator
                 multMatrix = LinearAlgebra.LinearAlgebra.Multiply(xMat, yMat);
                 multMatrix = LinearAlgebra.LinearAlgebra.Multiply(multMatrix, zMat);
 
->>>>>>> pr/1
             }
             else if (T == Transformation.Scaling)
             {
 
-<<<<<<< HEAD
-            }
-            else
-            {
-
-=======
                 float scaleX = float.Parse(A[0].ToString());
 
                 float scaleY = float.Parse(A[1].ToString());
@@ -162,7 +144,7 @@ namespace Dimension.simulator
                 {
                     Matrix pointMatrix = new Matrix(Pt);
 
-                    pointMatrix = LinearAlgebra.LinearAlgebra.Multiply(pointMatrix, multMat);
+                    pointMatrix = LinearAlgebra.LinearAlgebra.Multiply(pointMatrix, multMatrix);
 
                     ///Assignment of Points
 
@@ -173,7 +155,6 @@ namespace Dimension.simulator
                     Pt.z = pointMatrix.MatData[0,2];
 
                 }
->>>>>>> pr/1
             }
 
             return S;

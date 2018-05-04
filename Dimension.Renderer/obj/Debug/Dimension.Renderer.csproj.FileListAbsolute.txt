@@ -12,3 +12,12 @@ C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Rendere
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Renderer\obj\Debug\Dimension.renderer.csprojResolveAssemblyReference.cache
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Renderer\bin\Debug\Dimension.LinearAlgebra.dll
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Renderer\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\bin\Debug\Dimension.Renderer.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\bin\Debug\Dimension.Renderer.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\bin\Debug\data.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\bin\Debug\data.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\obj\Debug\Dimension.renderer.csprojResolveAssemblyReference.cache
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\obj\Debug\Dimension.Renderer.dll
+C:\Users\moahmed\Documents\GitHub\Dimension\Dimension.Renderer\obj\Debug\Dimension.Renderer.pdb
