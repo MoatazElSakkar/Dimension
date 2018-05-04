@@ -34,18 +34,17 @@ namespace Dimension.stub
 
 
             //Test Case 1 the Red (Azure) triangle
-            List<Point> CubePointSet = new List<Point>();
-            CubePointSet.Add(new Point(0, 0, 0));
-            CubePointSet.Add(new Point(0, 0, 200));
-            CubePointSet.Add(new Point(0, 200, 200));
+            List<Point> CubePointSetF11 = new List<Point>();
+            CubePointSetF11.Add(new Point(0, 0, 5));
+            CubePointSetF11.Add(new Point(-100, 100, 5));
+            CubePointSetF11.Add(new Point(0, 100, 5));
 
-            CubePointSet.Add(new Point(200, 0, 0));
-            CubePointSet.Add(new Point(0, 200, 0));
-            CubePointSet.Add(new Point(200, 200, 200));
-            CubePointSet.Add(new Point(200, 200, 0));
-            CubePointSet.Add(new Point(0, 200, 0));
+            List<Point> CubePointSetF12 = new List<Point>();
+            CubePointSetF12.Add(new Point(-100, 0, 1));
+            CubePointSetF12.Add(new Point(-100, 100, 1));
+            CubePointSetF12.Add(new Point(0, 0, 5));
 
-            StructureData SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(TrianglePointset[0], TrianglePointset[1], TrianglePointset[2]) });
+            StructureData SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(CubePointSetF11.ToArray()),new Triangle(CubePointSetF12.ToArray()) });
             int triangleID = S.addStructure(SD);
         }
 

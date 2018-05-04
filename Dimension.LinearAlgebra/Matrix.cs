@@ -5,8 +5,6 @@ using Dimension.data;
 
 namespace Dimension.LinearAlgebra
 {
-
-
     public static class LinearAlgebra
     {
         public static Matrix Multiply(Matrix Mx1, Matrix Mx2)
