@@ -79,11 +79,14 @@ namespace Dimension.Renderer
                             {0,0,0},
                             });
 
-                            Matrix PointMatrix = new Matrix(new float[1,3]{
-                            {P.x,P.y,P.z}
+                            Matrix PointMatrix = new Matrix(new float[3,1]{
+                            {P.x},{P.y},{P.z}
                             }
                             );
-                            LinearAlgebra.LinearAlgebra.Multiply(PointMatrix,Mat);
+                            int v, u;
+                            Matrix Output = LinearAlgebra.LinearAlgebra.Multiply(PointMatrix,Mat);
+                            v = (int) Output.MatData.GetValue(0, 0);
+                            u = (int) Output.MatData.GetValue(0, 1);
 
                         }
                         T.wireframeSegment=nWireframeSegment.ToArray();

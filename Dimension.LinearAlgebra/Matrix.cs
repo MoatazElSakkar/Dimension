@@ -9,10 +9,10 @@ namespace Dimension.LinearAlgebra
     {
         public static Matrix Multiply(Matrix Mx1, Matrix Mx2)
         {
-            Debug.Assert(Mx1.Columns == Mx2.Rows);
+            Debug.Assert(Mx2.Columns == Mx1.Rows);
 
-            int outRows = Mx2.Rows;
-            int outColumns = Mx1.Columns;
+            int outRows = Mx1.Rows;
+            int outColumns = Mx2.Columns;
 
             ///Intialization of an empty data as preparation for the output Matrix
 
@@ -33,7 +33,7 @@ namespace Dimension.LinearAlgebra
 
             /// The Multiplication Part
 
-            int moveOnRow = Mx1.Rows;
+            int moveOnRow = Mx1.Columns;
 
             for (int i = 0; i < outRows; i++)
             {
