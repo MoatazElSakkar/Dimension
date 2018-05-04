@@ -41,14 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Angle.cs" />
-    <Compile Include="Bound.cs" />
-    <Compile Include="CompositeStructure.cs" />
-    <Compile Include="Line.cs" />
-    <Compile Include="Morph.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structure.cs" />
+    <Compile Include="Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />

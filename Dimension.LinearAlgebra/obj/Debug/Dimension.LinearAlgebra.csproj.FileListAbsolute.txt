@@ -12,3 +12,10 @@ C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimensio
 C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.csprojResolveAssemblyReference.cache
 C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.dll
 C:\Users\Moataz\Desktop\Project Dimension\Source Code\Build R\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\bin\Debug\Dimension.LinearAlgebra.dll
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\bin\Debug\Dimension.LinearAlgebra.pdb
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\bin\Debug\data.dll
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\bin\Debug\data.pdb
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.csprojResolveAssemblyReference.cache
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.dll
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.LinearAlgebra\obj\Debug\Dimension.LinearAlgebra.pdb

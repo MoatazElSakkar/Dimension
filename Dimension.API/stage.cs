@@ -10,20 +10,13 @@ namespace Dimension.API
 {
     public class StructureData
     {
-        public bool Composite;
-        public object[] pointSet;
+        public Triangle[] wireframeData;
         public Point Location;
+        public int ID;
 
-        public StructureData(bool i_composite, Point i_centerLocation, Bound[] i_pointSet) //Constructor for shapes
+        public StructureData(Point i_centerLocation, Triangle[] i_wireframeSet) //Constructor for shapes
         {
-            Composite = i_composite;
-            pointSet = i_pointSet;
-        }
-
-        public StructureData(bool i_composite,Point i_centerLocation, Shape[] i_pointSet)//Constructor for compositions
-        {
-            Composite = i_composite;
-            pointSet = i_pointSet;
+            wireframeData = i_wireframeSet;
         }
     }
 
@@ -33,22 +26,24 @@ namespace Dimension.API
         {
             int LocalID = 0;
             Structure S = new Structure();
-            S.Composite = i_struct.Composite;
-            foreach (object obj in i_struct.pointSet)
+            S.WireFrame = new List<Triangle>();
+            foreach (Triangle T in i_struct.wireframeData)
             {
-                S.WireFrame.Add(LocalID++, obj);
+                S.WireFrame.Add(T);
             }
-            S.updateCenterPoint();
+            S.ID = LocalID++;
+            //S.updateCenterPoint();
             return S;
         } //converts structure data to structure
 
         SimulationStage stage = new SimulationStage();
         Simulator Simulex = new Simulator();
-        Rdenderer Rendex = new Rdenderer();
+        Renderer.Renderer Rendex = new Renderer.Renderer(720,360);
 
         public int addStructure(StructureData i_StructData)
         {
-            stage.StageData.Add(stage.curID, fromStructureData(i_StructData));
+            i_StructData.ID = stage.curID;
+            stage.StageData.Add(fromStructureData(i_StructData));
             return stage.curID++;
         }
 
@@ -68,8 +63,14 @@ namespace Dimension.API
             }
         }
 
-        public void MapTexture(
+        public void MapTexture()
+        {
+        }
 
-        
+        public System.Drawing.Bitmap Render()
+        {
+            Projector Projectex = new Projector(stage.StageData,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
+            return Rendex.GenerateStageView(Projectex.GeneratePorjection());
+        }
     }
 }

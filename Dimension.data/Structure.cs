@@ -7,12 +7,32 @@ namespace Dimension.data
 {
     public class Structure
     {
-        public Dictionary<int, object> WireFrame;
-        public bool Composite;
+        public List <Triangle> WireFrame;
+
         public Point CenterPoint=new Point(0,0,0); //avg of all points a 3D space center
+
+        public int ID;
 
         //in case of a shape these 2 functions operate on morphs/Lines
         //However in case of structure composition they operate on shapes
+
+        public float getMaxZScore()
+        {
+            float curMax = float.MinValue;
+
+            foreach (Triangle T in WireFrame)
+            {
+                foreach (Point P in T.wireframeSegment)
+                {
+                    if (P.z > curMax)
+                    {
+                        curMax = P.z;
+                    }
+                }
+            }
+
+            return curMax;
+        }
 
         public void updateCenterPoint() //assigns the average of all points to centerPoint
         {
