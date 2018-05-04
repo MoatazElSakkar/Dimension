@@ -33,7 +33,7 @@ namespace Dimension.LinearAlgebra
 
             /// The Multiplication Part
 
-            int moveOnRow = Mx2.Rows;
+            int moveOnRow = Mx1.Rows;
 
             for (int i = 0; i < outRows; i++)
             {
@@ -78,16 +78,16 @@ namespace Dimension.LinearAlgebra
 
         public Matrix(float[,] entryData) //Entry as a single array
         {
-            Columns = entryData.GetLength(1);
             Rows = entryData.GetLength(0);
+            Columns = entryData.GetLength(1);
             MatData = entryData;
         }
 
         public Matrix(Point i_point) //Entry as a Dimension Point
         {
             MatData = new float[4, 1]; //a point is represented as 4x1 matrix in transformation
-            Columns = 1;
             Rows = 4;
+            Columns = 1;
             MatData[0, 0]=i_point.x;
             MatData[1, 0] = i_point.y;
             MatData[2, 0] = i_point.z;
