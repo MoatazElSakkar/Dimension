@@ -49,7 +49,7 @@ namespace Dimension.Renderer
                         {
                             //Weak Prespective Projection algorithm (still untested on 3D)
                             int u, v;
-                            if (P.z != 0)
+                            if (P.z != 1)
                             {
                                 u = (int)(P.x / P.z);
                                 v = (int)(P.y / P.z);
@@ -57,11 +57,12 @@ namespace Dimension.Renderer
                             }
                             else
                             {
-                                u = (int)(P.x);
-                                v = (int)(P.y);
+                                u = (int)(P.x)/2;
+                                v = (int)(P.y)/2;
                             }
 
                             v = v * -1;
+
                             u += stageWpx / 2;
                             v += stageHpx / 2;
 

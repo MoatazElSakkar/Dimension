@@ -16,22 +16,6 @@ namespace Dimension.data
         //in case of a shape these 2 functions operate on morphs/Lines
         //However in case of structure composition they operate on shapes
 
-        public float getAvgZScore()
-        {
-            float ZScore = 0.0F;
-            int count = 0;
-
-            foreach (Triangle T in WireFrame)
-            {
-                foreach (Point P in T.wireframeSegment)
-                {
-                    ZScore += P.z;
-                    count++;
-                }
-            }
-            return ZScore / count;
-        }
-
         public float getMaxZScore()
         {
             float curMax = float.MinValue;

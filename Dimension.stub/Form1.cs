@@ -25,12 +25,27 @@ namespace Dimension.stub
 
             S = new Stage();
             //Test Case 1 the Red (Azure) triangle
-            List<Point> TrianglePointset = new List<Point>();
-            TrianglePointset.Add(new Point(0, 200, 3));
-            TrianglePointset.Add(new Point(-100, -100, 0));
-            //TrianglePointset.Add(new Point(100, -100, 0));
-            TrianglePointset.Add(new Point(100, -100, 0));
-            StructureData SD=new StructureData(new data.Point(0, 0, 0),new Triangle[] {new Triangle(TrianglePointset[0],TrianglePointset[1],TrianglePointset[2])});
+            //List<Point> TrianglePointset = new List<Point>();
+            //TrianglePointset.Add(new Point(0, 200, 1));
+            //TrianglePointset.Add(new Point(-100, -100, 10));
+            //TrianglePointset.Add(new Point(100, -100, 10));
+            //StructureData SD=new StructureData(new data.Point(0, 0, 0),new Triangle[] {new Triangle(TrianglePointset[0],TrianglePointset[1],TrianglePointset[2])});
+            //int triangleID = S.addStructure(SD);
+
+
+            //Test Case 1 the Red (Azure) triangle
+            List<Point> CubePointSet = new List<Point>();
+            CubePointSet.Add(new Point(0, 0, 0));
+            CubePointSet.Add(new Point(0, 0, 200));
+            CubePointSet.Add(new Point(0, 200, 200));
+
+            CubePointSet.Add(new Point(200, 0, 0));
+            CubePointSet.Add(new Point(0, 200, 0));
+            CubePointSet.Add(new Point(200, 200, 200));
+            CubePointSet.Add(new Point(200, 200, 0));
+            CubePointSet.Add(new Point(0, 200, 0));
+
+            StructureData SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(TrianglePointset[0], TrianglePointset[1], TrianglePointset[2]) });
             int triangleID = S.addStructure(SD);
         }
 

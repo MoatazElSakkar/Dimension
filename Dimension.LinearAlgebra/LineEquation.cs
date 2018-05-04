@@ -18,9 +18,9 @@ namespace Dimension.LinearAlgebra
     {
         //y=mx+c
 
-        public int Slope; //(y2-y1)/(x2-x1)
+        public float Slope; //(y2-y1)/(x2-x1)
 
-        public int intercept; //Intersection with Y axis (or X axis if inverted)
+        public float intercept; //Intersection with Y axis (or X axis if inverted)
 
         bool vertical = false;
 
@@ -69,6 +69,13 @@ namespace Dimension.LinearAlgebra
             int A = (int) Math.Pow((a.x - b.x), 2.0);
             int B = (int) Math.Pow((a.y - b.y), 2.0);
             length = (int) Math.Sqrt(A + B);
+        }
+
+        public int CalculatePartialLength(Point a, Point b) //Getting the distance between 2 points
+        {
+            int A = (int)Math.Pow((a.x - b.x), 2.0);
+            int B = (int)Math.Pow((a.y - b.y), 2.0);
+            return (int)Math.Sqrt(A + B);
         }
 
         void CalculateDirection(Point a, Point b)
@@ -121,7 +128,7 @@ namespace Dimension.LinearAlgebra
                     return P;
                 }
                 nX = P.x + direction;
-                nY = Map(P.x);
+                nY = Map(nX);
             }
             else
             {

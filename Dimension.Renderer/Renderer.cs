@@ -39,7 +39,8 @@ namespace Dimension.Renderer
                     for (int i = 0; i < T.wireframeSegment.Count();i++)
                     {
                         //Outbound.SetPixel((int)T.wireframeSegment[i].x, (int)T.wireframeSegment[i].y, Color.Aqua);
-                        LineEquation curLine = new LineEquation(T.wireframeSegment[i], T.wireframeSegment[(i + 1)%T.wireframeSegment.Count()]);
+                        int f=(i + 1)%T.wireframeSegment.Count();
+                        LineEquation curLine = new LineEquation(T.wireframeSegment[i], T.wireframeSegment[f]);
                         Dimension.data.Point curPoint = T.wireframeSegment[i];
                         Color[] colors ={
                                             Color.Lime,
