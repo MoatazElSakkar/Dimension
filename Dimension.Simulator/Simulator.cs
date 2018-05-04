@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Dimension.data;
 using Dimension.LinearAlgebra;
+using System.Diagnostics;
 
 namespace Dimension.simulator
 {
@@ -26,7 +27,29 @@ namespace Dimension.simulator
 
         public Structure SimulateTransformation(Structure S,Transformation T, object A)
         {
-            throw new NotImplementedException();
+
+            Matrix multMat;
+            
+            if (T == Transformation.Rotation)
+            {
+                Angle rotationAngle = new Angle(float.Parse(A.ToString()));
+
+                for (; ; )
+                {
+
+                }
+                
+            }
+            else if (T == Transformation.Scaling)
+            {
+
+            }
+            else
+            {
+
+            }
+
+            return S;
         }
 
         public SimulationStage SimulateTransformation(SimulationStage S, Transformation T, object A)
