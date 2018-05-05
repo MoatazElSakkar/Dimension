@@ -10,7 +10,7 @@ namespace Dimension.data
         X,Y,Z
     }
 
-    public class Structure
+    public class Structure : IComparable<Structure>
     {
         public List <Triangle> WireFrame;
 
@@ -54,6 +54,13 @@ namespace Dimension.data
         public virtual object unbind(int i) //you destroy a shape/Bound you get a copy
         {
             throw new NotImplementedException();
+        }
+
+        public int CompareTo(Structure other)
+        {
+            float diff = getMaxZScore() - other.getMaxZScore();
+            if(Math.Abs(diff) <= 1e-9) return 0;
+            return diff < 0?-1:1;
         }
 
         //Lists to track transformations - easier to work with when applying textures

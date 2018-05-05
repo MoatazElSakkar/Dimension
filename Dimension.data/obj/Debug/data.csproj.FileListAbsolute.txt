@@ -1,5 +1,0 @@
-c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\data\bin\Debug\data.dll
-c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\data\bin\Debug\data.pdb
-c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\data\obj\Debug\ResolveAssemblyReference.cache
-c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\data\obj\Debug\data.dll
-c:\users\moataz\documents\visual studio 2010\Projects\Project Dimension\data\obj\Debug\data.pdb
