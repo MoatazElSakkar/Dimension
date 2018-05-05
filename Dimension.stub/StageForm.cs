@@ -33,11 +33,22 @@ namespace Dimension.stub
             TrianglePointset.Add(new Point(0, 200, 1));
             TrianglePointset.Add(new Point(-200, -200, 1));
             TrianglePointset.Add(new Point(200, -200, 1));
-            StructureData SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(TrianglePointset[0], TrianglePointset[1], TrianglePointset[2]) },System.Drawing.Color.Red);
-            int triangleID = TriangleStage.addStructure(SD);
+            StructureData Triangle_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(TrianglePointset[0], TrianglePointset[1], TrianglePointset[2]) },new System.Drawing.Color[]{System.Drawing.Color.Red});
+            int triangleID = TriangleStage.addStructure(Triangle_SD);
             Refrence.Add("Red Triangle", TriangleStage);
 
             //Test Case 2 the Pyramid of Giza
+            Stage PyramidOfGiza = new Stage();
+            List<Point> PyramidOfGizaPointSet = new List<Point>();
+            PyramidOfGizaPointSet.Add(new Point(-25, 200, 1));
+            PyramidOfGizaPointSet.Add(new Point(-400, -200, 3));
+            PyramidOfGizaPointSet.Add(new Point(150, -200, 2));
+            PyramidOfGizaPointSet.Add(new Point(350, -200, 4));
+            StructureData Giza_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.DarkKhaki });
+            int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_SD);
+            int PyramidOfGizaID2 = PyramidOfGiza.addStructure(Giza_SD);
+            PyramidOfGiza.Transform(PyramidOfGizaID2, Transformation.Translation, -100, 20, 20);
+            Refrence.Add("Pyramid Of Giza", PyramidOfGiza);
 
             //Use the code above as a template
 

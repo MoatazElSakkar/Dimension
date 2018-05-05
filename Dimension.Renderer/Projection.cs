@@ -16,15 +16,20 @@ namespace Dimension.Renderer
             {
                 foreach (Triangle T in S.WireFrame)
                 {
-                    foreach (Point P in T.wireframeSegment)
+                    for(int i=0;i<3;i++)
                     {
-                        if (P.x > stageWpx)
+                        if (T.wireframeSegment[i].x > stageWpx)
                         {
 
                         }
                     }
                 }
             }
+        }
+
+        void resolvePoint()
+        {
+
         }
     }
 }

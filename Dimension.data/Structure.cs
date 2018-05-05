@@ -14,7 +14,7 @@ namespace Dimension.data
     {
         public List <Triangle> WireFrame;
 
-        public System.Drawing.Color StructureColor;
+        public List <System.Drawing.Color> StructureColor;
 
         public Point CenterPoint=new Point(0,0,0); //avg of all points a 3D space center
 

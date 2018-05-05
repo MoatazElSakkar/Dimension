@@ -37,7 +37,10 @@ namespace Dimension.simulator
             Point normalVector = Point.crossProduct(T.wireframeSegment[0], T.wireframeSegment[1]);
             Point origin = new Point(0,0,0);
             Point centerOfGravity = new Point(0,0,0);
-            for(int i = 0;i < 3;i++) centerOfGravity = centerOfGravity + T.wireframeSegment[i];
+            foreach(Point p in T.wireframeSegment)
+            {
+                centerOfGravity = centerOfGravity + p;
+            }
             centerOfGravity = centerOfGravity / 3;
             Point vectorFromLight = Location - centerOfGravity;
             float cosAngle = Point.dotProduct(vectorFromLight, normalVector) / Point.getDistance(origin, vectorFromLight) / Point.getDistance(origin, normalVector);
