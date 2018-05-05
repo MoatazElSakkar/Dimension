@@ -95,3 +95,4 @@ namespace Dimension.LinearAlgebra
         }
     }
 }
+;
