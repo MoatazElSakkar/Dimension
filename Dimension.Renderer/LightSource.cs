@@ -40,10 +40,10 @@ namespace Dimension.Renderer
 
         public System.Drawing.Color TuneColor(Triangle T, System.Drawing.Color oldColor)
         {
-            System.Drawing.Color newColor = oldColor;
-            newColor = System.Drawing.Color.FromArgb(oldColor.A, (oldColor.R * Intensity.R + 254) / 255, (oldColor.G * Intensity.G + 254) / 255, (oldColor.B * Intensity.B + 254) / 255);
-            Point normalVector = Point.crossProduct(T.wireframeSegment[0], T.wireframeSegment[1]);
+            System.Drawing.Color newColor = System.Drawing.Color.FromArgb(oldColor.A, (oldColor.R * Intensity.R + 254) / 255, (oldColor.G * Intensity.G + 254) / 255, (oldColor.B * Intensity.B + 254) / 255);
             Point origin = new Point(0,0,0);
+            Point normalVector = Point.crossProduct(T.wireframeSegment[2] - T.wireframeSegment[0], T.wireframeSegment[1] - T.wireframeSegment[0]);
+            normalVector = normalVector / Point.getDistance(origin, normalVector);
             Point centerOfGravity = new Point(0,0,0);
             foreach(Point p in T.wireframeSegment)
             {
@@ -51,7 +51,8 @@ namespace Dimension.Renderer
             }
             centerOfGravity = centerOfGravity / 3;
             Point vectorFromLight = Location - centerOfGravity;
-            float cosAngle = Point.dotProduct(vectorFromLight, normalVector) / Point.getDistance(origin, vectorFromLight) / Point.getDistance(origin, normalVector);
+            vectorFromLight =  vectorFromLight / Point.getDistance(origin, vectorFromLight);
+            float cosAngle = Point.dotProduct(vectorFromLight, normalVector);
             if(cosAngle < 0) cosAngle = 0;
             else if(cosAngle > 1) cosAngle = 1;
             return System.Drawing.Color.FromArgb(newColor.A, (int)Math.Round(newColor.R * cosAngle), (int)Math.Round(newColor.G * cosAngle), (int)Math.Round(newColor.B * cosAngle));
