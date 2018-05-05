@@ -46,8 +46,8 @@ namespace Dimension.stub
             PyramidOfGizaPointSet.Add(new Point(350, -200, 4));
             StructureData Giza_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.DarkKhaki });
             int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_SD);
-            int PyramidOfGizaID2 = PyramidOfGiza.addStructure(Giza_SD);
-            PyramidOfGiza.Transform(PyramidOfGizaID2, Transformation.Translation, -100, 20, 20);
+            //int PyramidOfGizaID2 = PyramidOfGiza.addStructure(Giza_SD);
+            //PyramidOfGiza.Transform(PyramidOfGizaID2, Transformation.Translation, -100, 20, 20);
             Refrence.Add("Pyramid Of Giza", PyramidOfGiza);
 
             //Use the code above as a template

@@ -46,6 +46,7 @@ namespace Dimension.API
         } //converts structure data to structure
 
         SimulationStage stage = new SimulationStage();
+        LightSource light = new LightSource();
         Simulator Simulex = new Simulator();
         Renderer.Renderer Rendex = new Renderer.Renderer(720,360);
 
@@ -85,6 +86,11 @@ namespace Dimension.API
         {
             Projector Projectex = new Projector(stage.StageData,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
             return Rendex.GenerateStageView(Projectex.GeneratePorjection());
+        }
+
+        public void Reintialize()
+        {
+            Rendex = new Renderer.Renderer(720, 360);
         }
     }
 }
