@@ -56,11 +56,11 @@ namespace Dimension.Renderer
                         {
                             P.z = 1;
                         }
-                        if (P.z != 1)
+                        if (true)
                         {
                             if (P.z != 2)
                             {
-                                P.z /= 2;
+                                P.z /= 2.0f;
                             }
                             else
                             {
@@ -70,11 +70,11 @@ namespace Dimension.Renderer
                             v = (int)(P.y / P.z);
 
                         }
-                        else
-                        {
-                            u = (int)(P.x) / 2;
-                            v = (int)(P.y) / 2;
-                        }
+                        //else
+                        //{
+                        //    u = (int)(P.x) / 2;
+                        //    v = (int)(P.y) / 2;
+                        //}
 
                         v = v * -1;
 
