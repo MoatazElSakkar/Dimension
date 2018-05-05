@@ -88,6 +88,12 @@ namespace Dimension.API
             return Rendex.GenerateStageView(Projectex.GeneratePorjection());
         }
 
+        public void SetLightSource(Point i_p, System.Drawing.Color i_Intensity)
+        {
+            light.Location = i_p;
+            light.Intensity = i_Intensity;
+        }
+
         public void Reintialize()
         {
             Rendex = new Renderer.Renderer(720, 360);

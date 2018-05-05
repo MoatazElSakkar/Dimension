@@ -23,10 +23,6 @@ namespace Dimension.stub
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            
-
-
             //Test Case 1 the Red triangle
             Stage TriangleStage = new Stage();
             List<Point> TrianglePointset = new List<Point>();
