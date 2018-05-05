@@ -57,10 +57,10 @@ namespace Dimension.simulator
 
             for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
 
-            bufferData[0, 0] = rotationAngleY.cos();
-            bufferData[0, 2] = rotationAngleY.sin();
-            bufferData[2, 0] = -rotationAngleY.sin();
-            bufferData[2, 2] = rotationAngleY.cos();
+            bufferData[0, 0] = rotationAngleZ.cos();
+            bufferData[0, 2] = rotationAngleZ.sin();
+            bufferData[2, 0] = -rotationAngleZ.sin();
+            bufferData[2, 2] = rotationAngleZ.cos();
 
             Matrix yMat = new Matrix(bufferData);
 
