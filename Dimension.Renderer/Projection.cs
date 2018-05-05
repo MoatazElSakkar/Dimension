@@ -12,7 +12,19 @@ namespace Dimension.Renderer
 
         public void Clip(int stageWpx,int stageHpx)
         {
-            throw new NotImplementedException();
+            foreach (Structure S in Sillhouette)
+            {
+                foreach (Triangle T in S.WireFrame)
+                {
+                    foreach (Point P in T.wireframeSegment)
+                    {
+                        if (P.x > stageWpx)
+                        {
+
+                        }
+                    }
+                }
+            }
         }
     }
 }

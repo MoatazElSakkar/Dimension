@@ -56,14 +56,9 @@ namespace Dimension.Renderer
                 int f = (i + 1) % T.wireframeSegment.Count();
                 LineEquation curLine = new LineEquation(T.wireframeSegment[i], T.wireframeSegment[f]);
                 Dimension.data.Point curPoint = T.wireframeSegment[i];
-                Color[] colors ={
-                                            Color.Lime,
-                                            Color.Pink,
-                                            Color.Green,
-                                       };
                 for (int j = 0; j < curLine.length; j++)
                 {
-                    Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, colors[i]);
+                    Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, C);
                     curPoint = curLine.calculateNextPoint(curPoint);
                 }
             }
@@ -114,7 +109,7 @@ namespace Dimension.Renderer
                 rasterPoint = RasterLine.calculateNextPoint(raster1);
                 for (int j = 0; j < RasterLine.length; j++)
                 {
-                    Outbound.SetPixel((int)rasterPoint.x, (int)rasterPoint.y, Color.Red);
+                    Outbound.SetPixel((int)rasterPoint.x, (int)rasterPoint.y, C);
                     rasterPoint = RasterLine.calculateNextPoint(rasterPoint);
                 }
                 raster1 = L1.calculateNextPoint(raster1);
