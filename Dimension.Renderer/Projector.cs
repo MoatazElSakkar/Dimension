@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dimension.data;
+using Dimension.LinearAlgebra;
 
 namespace Dimension.Renderer
 {
@@ -47,6 +48,7 @@ namespace Dimension.Renderer
                         List<Point> nWireframeSegment=new List<Point>();
                         foreach (Point P in T.wireframeSegment)
                         {
+                            #region WeakPrespective <Commented>
                             //Weak Prespective Projection algorithm (still untested on 3D)
                             int u, v;
                             if (P.z != 1)
@@ -57,8 +59,8 @@ namespace Dimension.Renderer
                             }
                             else
                             {
-                                u = (int)(P.x)/2;
-                                v = (int)(P.y)/2;
+                                u = (int)(P.x) / 2;
+                                v = (int)(P.y) / 2;
                             }
 
                             v = v * -1;
@@ -66,8 +68,45 @@ namespace Dimension.Renderer
                             u += stageWpx / 2;
                             v += stageHpx / 2;
 
-                            nWireframeSegment.Add(new Point(u,v,0));
+                            nWireframeSegment.Add(new Point(u, v, 0));
                             //Note to self create an int point "Projected Point"
+                            #endregion
+
+                            #region Orthogonal Projection <commented>
+                            //Orthogonal Projection
+                            //Matrix Mat = new Matrix(new float[4,4]{
+                            //{2/1280,0,0,0},
+                            //{0,2/720,0,0},
+                            //{0,0,2/30,0},
+                            //{0,0,0,1}
+                            //});
+
+                            //Matrix PointMatrix = new Matrix(P);
+                            //Matrix Output = LinearAlgebra.LinearAlgebra.Multiply(Mat,PointMatrix);
+                            #endregion
+
+
+                            //habd projection algorithm
+                            //float v, u;
+
+
+                            //if (P.y > stageHpx / 2)
+                            //{
+                            //    v = P.x - P.z;
+                            //    u = P.y - P.z;
+                            //}
+                            //else
+                            //{
+                            //    v = P.x + P.z;
+                            //    u = P.y + P.z;
+                            //}
+
+                            //v *= -1;
+
+                            //u += stageWpx / 2;
+                            //v += stageHpx / 2;
+
+                            //nWireframeSegment.Add(new Point(u, v, 0));
                         }
                         T.wireframeSegment=nWireframeSegment.ToArray();
                         nBound.Add(T);

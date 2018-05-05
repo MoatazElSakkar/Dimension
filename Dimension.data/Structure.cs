@@ -5,9 +5,16 @@ using System.Text;
 
 namespace Dimension.data
 {
+    public enum Dimension
+    {
+        X,Y,Z
+    }
+
     public class Structure
     {
         public List <Triangle> WireFrame;
+
+        public List <System.Drawing.Color> StructureColor;
 
         public Point CenterPoint=new Point(0,0,0); //avg of all points a 3D space center
 

@@ -13,10 +13,17 @@ namespace Dimension.API
         public Triangle[] wireframeData;
         public Point Location;
         public int ID;
+        public System.Drawing.Color[] StructureColor;
 
         public StructureData(Point i_centerLocation, Triangle[] i_wireframeSet) //Constructor for shapes
         {
             wireframeData = i_wireframeSet;
+        }
+
+        public StructureData(Point i_centerLocation, Triangle[] i_wireframeSet,System.Drawing.Color[] i_color) //Constructor for shapes
+        {
+            wireframeData = i_wireframeSet;
+            StructureColor = i_color;
         }
     }
 
@@ -27,9 +34,11 @@ namespace Dimension.API
             int LocalID = 0;
             Structure S = new Structure();
             S.WireFrame = new List<Triangle>();
-            foreach (Triangle T in i_struct.wireframeData)
+            S.StructureColor = new List<System.Drawing.Color>();
+            for (int i = 0; i < i_struct.wireframeData.Count();i++)
             {
-                S.WireFrame.Add(T);
+                S.WireFrame.Add(i_struct.wireframeData[i]);
+                S.StructureColor.Add(i_struct.StructureColor[i]);
             }
             S.ID = LocalID++;
             //S.updateCenterPoint();
@@ -47,7 +56,7 @@ namespace Dimension.API
             return stage.curID++;
         }
 
-        public void Transform(Transformation T, object value) //Rotation:angle, Translation point, scaling scalar xD
+        public void Transform(Transformation T, params object[] value) //Rotation:angle, Translation point, scaling scalar xD
         {
             if (stage.StageData.Count == 1) //main case
             {
@@ -55,12 +64,17 @@ namespace Dimension.API
             }
             else if (stage.StageData.Count > 1) //Optional
             {
-                stage = Simulex.SimulateTransformation(stage, T, value);
+                //stage = Simulex.SimulateTransformation(stage, T, value);
             }
             else
             {
                 throw new Exception("Empty stage inapplicable for transformation");
             }
+        }
+
+        public void Transform(int structureID,Transformation T, params object[] value) //Rotation:angle, Translation point, scaling scalar xD
+        {
+            stage.StageData[structureID] = Simulex.SimulateTransformation(stage.StageData[structureID], T, value);
         }
 
         public void MapTexture()

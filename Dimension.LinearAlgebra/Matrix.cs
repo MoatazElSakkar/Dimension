@@ -5,8 +5,6 @@ using Dimension.data;
 
 namespace Dimension.LinearAlgebra
 {
-
-
     public static class LinearAlgebra
     {
         public static Matrix Multiply(Matrix Mx1, Matrix Mx2)
@@ -45,7 +43,7 @@ namespace Dimension.LinearAlgebra
                     for (int k = 0; k < moveOnRow; k++)
                     {
 
-                        outputMx.MatData[i, j] = Mx1.MatData[i,k] * Mx2.MatData[k,j];
+                        outputMx.MatData[i, j] += Mx1.MatData[i,k] * Mx2.MatData[k,j];
 
                     }
 
@@ -63,13 +61,15 @@ namespace Dimension.LinearAlgebra
         public float[,] MatData;
         public int Rows, Columns;
         public Matrix() { }
-        public Matrix(float[] entryData, int i_Columns, int i_Rows) //Entry as a single array
+        public Matrix(float[] entryData, int i_Rows, int i_Columns) //Entry as a single array
         {
+            Columns = i_Columns;
+            Rows = i_Rows;
             //Conversion to 2D array
             MatData = new float[i_Rows,i_Columns];
-            for (int i = 0; i < i_Columns; i++)
+            for (int i = 0; i <i_Rows; i++)
             {
-                for (int j = 0; j < i_Rows; j++)
+                for (int j = 0; j < i_Columns; j++)
                 {
                     MatData[i,j]=entryData[i * Columns + j];
                 }
@@ -78,12 +78,16 @@ namespace Dimension.LinearAlgebra
 
         public Matrix(float[,] entryData) //Entry as a single array
         {
+            Rows = entryData.GetLength(0);
+            Columns = entryData.GetLength(1);
             MatData = entryData;
         }
 
         public Matrix(Point i_point) //Entry as a Dimension Point
         {
             MatData = new float[4, 1]; //a point is represented as 4x1 matrix in transformation
+            Rows = 4;
+            Columns = 1;
             MatData[0, 0]=i_point.x;
             MatData[1, 0] = i_point.y;
             MatData[2, 0] = i_point.z;

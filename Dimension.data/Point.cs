@@ -9,7 +9,13 @@ namespace Dimension.data
     {
         public static float getDistance(Point a, Point b) //Gets Distance between 2 given points
         {
-            throw new NotImplementedException();
+            float A = b.x - a.x;
+            A *= A;
+            float B = b.y - a.y;
+            B *= B;
+            float C = b.z - a.z;
+            C *= C;
+            return (float) Math.Sqrt(A + B + C);
         }
 
         public float x, y,z;

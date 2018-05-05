@@ -6,3 +6,4 @@ C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Tween\b
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Tween\bin\Debug\Dimension.Tween.pdb
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Tween\obj\Debug\Dimension.Tween.dll
 C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Tween\obj\Debug\Dimension.Tween.pdb
+C:\Users\Moataz\Projects\Project Dimension\Dimension\Dimension\Dimension.Tween\obj\Debug\Dimension.Tween.csprojResolveAssemblyReference.cache
