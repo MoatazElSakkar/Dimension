@@ -17,9 +17,9 @@ namespace Dimension.data
             {
                 throw new Exception("Invalid Triangle intialization");
             }
-            wireframeSegment[0] = a;
-            wireframeSegment[1] = b;
-            wireframeSegment[2] = c;
+            wireframeSegment[0] = new Point(a.x,a.y,a.z);
+            wireframeSegment[1] = new Point(b.x,b.y,b.z);
+            wireframeSegment[2] = new Point(c.x,c.y,c.z);
         }
 
         public Triangle(Point[] Entry)
