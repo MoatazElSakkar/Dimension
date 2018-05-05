@@ -46,7 +46,7 @@ namespace Dimension.API
         } //converts structure data to structure
 
         SimulationStage stage = new SimulationStage();
-        LightSource light = new LightSource();
+        LightSource L = new LightSource();
         Simulator Simulex = new Simulator();
         Renderer.Renderer Rendex = new Renderer.Renderer(720,360);
 
@@ -85,13 +85,13 @@ namespace Dimension.API
         public System.Drawing.Bitmap Render()
         {
             Projector Projectex = new Projector(stage.StageData,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
-            return Rendex.GenerateStageView(Projectex.GeneratePorjection());
+            return Rendex.GenerateStageView(Projectex.GeneratePorjection(),L);
         }
 
         public void SetLightSource(Point i_p, System.Drawing.Color i_Intensity)
         {
-            light.Location = i_p;
-            light.Intensity = i_Intensity;
+            L.Location = i_p;
+            L.Intensity = i_Intensity;
         }
 
         public void Reintialize()

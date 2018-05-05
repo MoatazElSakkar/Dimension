@@ -26,7 +26,7 @@ namespace Dimension.Renderer
         }
 
         //Places points only as of now
-        public Bitmap GenerateStageView(Projection input)
+        public Bitmap GenerateStageView(Projection input,LightSource L)
         {
             Outbound = new Bitmap(stageWpx, stageHpx);
             for (int i = 0; i < stageWpx; i++)
@@ -37,10 +37,10 @@ namespace Dimension.Renderer
                 for(int i=0;i<S.WireFrame.Count;i++)
                 {
                     //Rendering Triangle Outline
-                    renderTriangleOutline(S.WireFrame[i],S.StructureColor[i]);
+                    renderTriangleOutline(S.WireFrame[i],L.TuneColor(S.WireFrame[i],S.StructureColor[i]));
 
                     //Filling triangle
-                    fillFromVertix(S.WireFrame[i], S.StructureColor[i]);
+                    fillFromVertix(S.WireFrame[i], L.TuneColor(S.WireFrame[i], S.StructureColor[i]));
                 }
             }
             return Outbound;
