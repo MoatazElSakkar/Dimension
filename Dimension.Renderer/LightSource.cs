@@ -30,6 +30,14 @@ namespace Dimension.Renderer
             Location = location;
         }
 
+        public void TuneStructureColorSet(Structure S)
+        {
+            for(int i=0;i<S.WireFrame.Count;i++)
+            {
+                S.StructureColor[i]=TuneColor(S.WireFrame[i], S.StructureColor[i]);
+            }
+        }
+
         public System.Drawing.Color TuneColor(Triangle T, System.Drawing.Color oldColor)
         {
             System.Drawing.Color newColor = oldColor;
