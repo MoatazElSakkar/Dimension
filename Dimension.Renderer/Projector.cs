@@ -50,25 +50,25 @@ namespace Dimension.Renderer
                         {
                             #region WeakPrespective <Commented>
                             //Weak Prespective Projection algorithm (still untested on 3D)
-                            //int u, v;
-                            //if (P.z != 1)
-                            //{
-                            //    u = (int)(P.x / P.z);
-                            //    v = (int)(P.y / P.z);
+                            int u, v;
+                            if (P.z != 1)
+                            {
+                                u = (int)(P.x / P.z);
+                                v = (int)(P.y / P.z);
 
-                            //}
-                            //else
-                            //{
-                            //    u = (int)(P.x)/2;
-                            //    v = (int)(P.y)/2;
-                            //}
+                            }
+                            else
+                            {
+                                u = (int)(P.x) / 2;
+                                v = (int)(P.y) / 2;
+                            }
 
-                            //v = v * -1;
+                            v = v * -1;
 
-                            //u += stageWpx / 2;
-                            //v += stageHpx / 2;
+                            u += stageWpx / 2;
+                            v += stageHpx / 2;
 
-                            //nWireframeSegment.Add(new Point(u,v,0));
+                            nWireframeSegment.Add(new Point(u, v, 0));
                             //Note to self create an int point "Projected Point"
                             #endregion
 
@@ -87,26 +87,26 @@ namespace Dimension.Renderer
 
 
                             //habd projection algorithm
-                            float v, u;
+                            //float v, u;
 
 
-                            if (P.y > stageHpx / 2)
-                            {
-                                v = P.x - P.z;
-                                u = P.y - P.z;
-                            }
-                            else
-                            {
-                                v = P.x + P.z;
-                                u = P.y + P.z;
-                            }
+                            //if (P.y > stageHpx / 2)
+                            //{
+                            //    v = P.x - P.z;
+                            //    u = P.y - P.z;
+                            //}
+                            //else
+                            //{
+                            //    v = P.x + P.z;
+                            //    u = P.y + P.z;
+                            //}
 
-                            v *= -1;
+                            //v *= -1;
 
-                            u += stageWpx / 2;
-                            v += stageHpx / 2;
+                            //u += stageWpx / 2;
+                            //v += stageHpx / 2;
 
-                            nWireframeSegment.Add(new Point(u, v, 0));
+                            //nWireframeSegment.Add(new Point(u, v, 0));
                         }
                         T.wireframeSegment=nWireframeSegment.ToArray();
                         nBound.Add(T);

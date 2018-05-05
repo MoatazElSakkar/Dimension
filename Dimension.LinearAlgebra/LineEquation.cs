@@ -40,7 +40,7 @@ namespace Dimension.LinearAlgebra
             int xDelta=(int)(b.x - a.x);
             if (xDelta != 0)
             {
-                Slope = yDelta / xDelta;
+                Slope = (float) yDelta / xDelta;
             }
             else
             {
@@ -66,16 +66,16 @@ namespace Dimension.LinearAlgebra
 
         void CalculateLength(Point a,Point b) //Getting the distance between 2 points
         {
-            int A = (int) Math.Pow((a.x - b.x), 2.0);
-            int B = (int) Math.Pow((a.y - b.y), 2.0);
-            length = (int) Math.Sqrt(A + B);
-        }
+            if (!vertical)
+            {
+                length = (int)Math.Abs((a.x - b.x));
+            }
+            else
+            {
+                length = (int)Math.Abs((a.y - b.y));
+            }
 
-        public int CalculatePartialLength(Point a, Point b) //Getting the distance between 2 points
-        {
-            int A = (int)Math.Pow((a.x - b.x), 2.0);
-            int B = (int)Math.Pow((a.y - b.y), 2.0);
-            return (int)Math.Sqrt(A + B);
+            //length = (int)Math.Max(Math.Abs(a.x - b.x), Math.Abs(a.y - b.y));
         }
 
         void CalculateDirection(Point a, Point b)
