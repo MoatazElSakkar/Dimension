@@ -9,5 +9,10 @@ namespace Dimension.Renderer
     public class Projection
     {
         public List<Structure> Sillhouette = new List<Structure>();
+
+        public void Clip(int stageWpx,int stageHpx)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
