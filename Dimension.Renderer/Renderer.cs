@@ -34,13 +34,13 @@ namespace Dimension.Renderer
                     Outbound.SetPixel(i, j, Color.DarkBlue);
             foreach (Structure S in input.Sillhouette)
             {
-                foreach (Triangle T in S.WireFrame)
+                for(int i=0;i<S.WireFrame.Count;i++)
                 {
                     //Rendering Triangle Outline
-                    renderTriangleOutline(T,S.StructureColor);
+                    renderTriangleOutline(S.WireFrame[i],S.StructureColor[i]);
 
                     //Filling triangle
-                    fillFromVertix(T, S.StructureColor);
+                    fillFromVertix(S.WireFrame[i], S.StructureColor[i]);
                 }
             }
             return Outbound;
