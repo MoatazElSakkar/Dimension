@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Dimension.data;
 
-namespace Dimension.simulator
+namespace Dimension.Renderer
 {
     //Only Logic Light effect is required
     //which is darkening/brightening the color of the structure depending on it's location from the light source
-    class LightSource
+    public class LightSource
     {
         public System.Drawing.Color Intensity;
         public Point Location;
