@@ -13,10 +13,17 @@ namespace Dimension.API
         public Triangle[] wireframeData;
         public Point Location;
         public int ID;
+        public System.Drawing.Color StructureColor;
 
         public StructureData(Point i_centerLocation, Triangle[] i_wireframeSet) //Constructor for shapes
         {
             wireframeData = i_wireframeSet;
+        }
+
+        public StructureData(Point i_centerLocation, Triangle[] i_wireframeSet,System.Drawing.Color i_color) //Constructor for shapes
+        {
+            wireframeData = i_wireframeSet;
+            StructureColor = i_color;
         }
     }
 
@@ -27,6 +34,7 @@ namespace Dimension.API
             int LocalID = 0;
             Structure S = new Structure();
             S.WireFrame = new List<Triangle>();
+            S.StructureColor = i_struct.StructureColor;
             foreach (Triangle T in i_struct.wireframeData)
             {
                 S.WireFrame.Add(T);

@@ -7,9 +7,5 @@ using Dimension.data;
 
 namespace Dimension.Renderer
 {
-    class LightSource
-    {
-        public Angle A;
-        public Point Location;
-    }
+    
 }

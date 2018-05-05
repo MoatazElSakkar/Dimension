@@ -37,16 +37,16 @@ namespace Dimension.Renderer
                 foreach (Triangle T in S.WireFrame)
                 {
                     //Rendering Triangle Outline
-                    renderTriangleOutline(T);
+                    renderTriangleOutline(T,S.StructureColor);
 
                     //Filling triangle
-                    fillFromVertix(T);
+                    fillFromVertix(T, S.StructureColor);
                 }
             }
             return Outbound;
         }
 
-        void renderTriangleOutline(Triangle T)
+        void renderTriangleOutline(Triangle T,Color C)
         {
             //Will fill in the lines between 2 points using
             //Equation y=mx+C;
@@ -69,7 +69,7 @@ namespace Dimension.Renderer
             }
         }
 
-        void fillFromApex(Triangle T)
+        void fillFromApex(Triangle T, Color C)
         {
             Dimension.data.Point Apex = new data.Point(0, float.MaxValue, 0);
             int ApexIndex = 0;
@@ -83,18 +83,18 @@ namespace Dimension.Renderer
                     ApexIndex = i;
                 }
             }
-            fillTriangle(T, ApexIndex);
+            fillTriangle(T, ApexIndex,C);
         }
 
-        void fillFromVertix(Triangle T)
+        void fillFromVertix(Triangle T, Color C)
         {
             for(int i=0;i<3;i++)
             {
-                fillTriangle(T, i);
+                fillTriangle(T, i,C);
             }
         }
 
-        void fillTriangle(Triangle T, int ApexIndex)
+        void fillTriangle(Triangle T, int ApexIndex, Color C)
         {
             LineEquation L1, L2;
 
@@ -121,5 +121,13 @@ namespace Dimension.Renderer
                 raster2 = L2.calculateNextPoint(raster2);
             }
         }
+
+        void FillWithTexture() //Advised course of action below
+        {
+            throw new NotImplementedException();
+        }
+        //Advised course of action is to operate on the structure as whole
+        //take 2 parallel lines (from 2 different triangles) and create a line between them
+        //using line equation, then itirate over that line coloring with the bitmap data as you do
     }
 }
