@@ -72,22 +72,41 @@ namespace Dimension.Renderer
                             //Note to self create an int point "Projected Point"
                             #endregion
 
+                            #region Orthogonal Projection <commented>
                             //Orthogonal Projection
-                            Matrix Mat = new Matrix(new float[3,3]{
-                            {1,0,0},
-                            {0,1,0},
-                            {0,0,0},
-                            });
+                            //Matrix Mat = new Matrix(new float[4,4]{
+                            //{2/1280,0,0,0},
+                            //{0,2/720,0,0},
+                            //{0,0,2/30,0},
+                            //{0,0,0,1}
+                            //});
 
-                            Matrix PointMatrix = new Matrix(new float[3,1]{
-                            {P.x},{P.y},{P.z}
+                            //Matrix PointMatrix = new Matrix(P);
+                            //Matrix Output = LinearAlgebra.LinearAlgebra.Multiply(Mat,PointMatrix);
+                            #endregion
+
+
+                            //habd projection algorithm
+                            float v, u;
+
+
+                            if (P.y > stageHpx / 2)
+                            {
+                                v = P.x - P.z;
+                                u = P.y - P.z;
                             }
-                            );
-                            int v, u;
-                            Matrix Output = LinearAlgebra.LinearAlgebra.Multiply(PointMatrix,Mat);
-                            v = (int) Output.MatData.GetValue(0, 0);
-                            u = (int) Output.MatData.GetValue(0, 1);
+                            else
+                            {
+                                v = P.x + P.z;
+                                u = P.y + P.z;
+                            }
 
+                            v *= -1;
+
+                            u += stageWpx / 2;
+                            v += stageHpx / 2;
+
+                            nWireframeSegment.Add(new Point(u, v, 0));
                         }
                         T.wireframeSegment=nWireframeSegment.ToArray();
                         nBound.Add(T);

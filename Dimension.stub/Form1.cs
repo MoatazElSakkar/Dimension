@@ -26,9 +26,9 @@ namespace Dimension.stub
             S = new Stage();
             //Test Case 1 the Red (Azure) triangle
             List<Point> TrianglePointset = new List<Point>();
-            TrianglePointset.Add(new Point(0, 200, 1));
-            TrianglePointset.Add(new Point(-100, -100, 1));
-            TrianglePointset.Add(new Point(100, -100, 1));
+            TrianglePointset.Add(new Point(0, 200, 50));
+            TrianglePointset.Add(new Point(-100, -100, 50));
+            TrianglePointset.Add(new Point(100, -100, 50));
             StructureData SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(TrianglePointset[0], TrianglePointset[1], TrianglePointset[2]) });
             int triangleID = S.addStructure(SD);
             //S.Transform(Transformation.Scaling,3,3,3);

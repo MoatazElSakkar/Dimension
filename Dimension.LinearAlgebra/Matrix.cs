@@ -9,7 +9,7 @@ namespace Dimension.LinearAlgebra
     {
         public static Matrix Multiply(Matrix Mx1, Matrix Mx2)
         {
-            Debug.Assert(Mx2.Columns == Mx1.Rows);
+            Debug.Assert(Mx1.Columns == Mx2.Rows);
 
             int outRows = Mx1.Rows;
             int outColumns = Mx2.Columns;
@@ -43,7 +43,7 @@ namespace Dimension.LinearAlgebra
                     for (int k = 0; k < moveOnRow; k++)
                     {
 
-                        outputMx.MatData[i, j] = Mx1.MatData[i,k] * Mx2.MatData[k,j];
+                        outputMx.MatData[i, j] += Mx1.MatData[i,k] * Mx2.MatData[k,j];
 
                     }
 
@@ -61,15 +61,15 @@ namespace Dimension.LinearAlgebra
         public float[,] MatData;
         public int Rows, Columns;
         public Matrix() { }
-        public Matrix(float[] entryData, int i_Columns, int i_Rows) //Entry as a single array
+        public Matrix(float[] entryData, int i_Rows, int i_Columns) //Entry as a single array
         {
             Columns = i_Columns;
             Rows = i_Rows;
             //Conversion to 2D array
             MatData = new float[i_Rows,i_Columns];
-            for (int i = 0; i < i_Columns; i++)
+            for (int i = 0; i <i_Rows; i++)
             {
-                for (int j = 0; j < i_Rows; j++)
+                for (int j = 0; j < i_Columns; j++)
                 {
                     MatData[i,j]=entryData[i * Columns + j];
                 }
