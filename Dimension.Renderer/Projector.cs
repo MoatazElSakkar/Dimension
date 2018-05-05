@@ -52,6 +52,10 @@ namespace Dimension.Renderer
                         #region WeakPrespective <Commented>
                         //Weak Prespective Projection algorithm (still untested on 3D)
                         int u, v;
+                        if (P.z == 0)
+                        {
+                            P.z = 1;
+                        }
                         if (P.z != 1)
                         {
                             u = (int)(P.x / P.z);
