@@ -11,7 +11,7 @@ namespace Dimension.LinearAlgebra
     {
         public static Matrix Multiply(Matrix Mx1, Matrix Mx2)
         {
-            Debug.Assert(Mx2.Columns == Mx1.Rows);
+            Debug.Assert(Mx1.Columns == Mx2.Rows);
 
             int outRows = Mx1.Rows;
             int outColumns = Mx2.Columns;
