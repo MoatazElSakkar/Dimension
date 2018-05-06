@@ -41,11 +41,7 @@ namespace Dimension.simulator
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                     bufferData[i, j] = 0;
-
-            if (rotationAngleX.value == 0)
-            {
-                for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
-            }
+            for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
 
             bufferData[1, 1] = rotationAngleX.cos();
             bufferData[1, 2] = -rotationAngleX.sin();
@@ -57,11 +53,7 @@ namespace Dimension.simulator
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                     bufferData[i, j] = 0;
-
-            if (rotationAngleY.value == 0)
-            {
-                for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
-            }
+            for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
 
             bufferData[0, 0] = rotationAngleY.cos();
             bufferData[0, 2] = rotationAngleY.sin();
@@ -73,10 +65,7 @@ namespace Dimension.simulator
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                     bufferData[i, j] = 0;
-            if (rotationAngleZ.value == 0)
-            {
-                for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
-            }
+            for (int i = 0; i < 4; i++) bufferData[i, i] = 1;
 
             bufferData[0, 0] = rotationAngleZ.cos();
             bufferData[0, 1] = -rotationAngleZ.sin();

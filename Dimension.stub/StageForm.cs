@@ -63,44 +63,63 @@ namespace Dimension.stub
             //Test Case 3 the Dimension Logo
             Stage CubeStage = new Stage();
             List<Point> CubePoints = new List<Point>();
-            CubePoints.Add(new Point(50, 50, 100));
-            CubePoints.Add(new Point(-50,50,100));
-            CubePoints.Add(new Point(-50, -50, 100));
-            CubePoints.Add(new Point(50,-50 , 100));
+            CubePoints.Add(new Point(50, 50, 50));
+            CubePoints.Add(new Point(-50,50,50));
+            CubePoints.Add(new Point(-50, -50, 50));
+            CubePoints.Add(new Point(50,-50 , 50));
 
 
             StructureData CubeFace=new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
                 new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
            }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink });
 
-            CubeStage.addStructure(CubeFace);
-            CubeStage.addStructure(CubeFace);
-            CubeStage.addStructure(CubeFace);
-            CubeStage.addStructure(CubeFace);
-            CubeStage.addStructure(CubeFace);
-            CubeStage.addStructure(CubeFace);
+            //CubeStage.addStructure(CubeFace);
+            //CubeStage.addStructure(CubeFace);
+            //CubeStage.addStructure(CubeFace);
+            //CubeStage.addStructure(CubeFace);
+            //CubeStage.addStructure(CubeFace);
+            //CubeStage.addStructure(CubeFace);
+
+            CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
+            CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
+            CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
+            CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
+            CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
+            CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
 
             CubeStage.Transform(0, Transformation.Rotation, 0, 90, 0);
-            CubeStage.Transform(0, Transformation.Translation, 25, 0, 0);
+            //CubeStage.Transform(0, Transformation.Translation, 25, 0, 0);
 
             CubeStage.Transform(1, Transformation.Rotation, 0, -90, 0);
-            CubeStage.Transform(1, Transformation.Translation, -25, 0, 0);
+            //CubeStage.Transform(1, Transformation.Translation, -25, 0, 0);
 
             CubeStage.Transform(2, Transformation.Rotation, 90, 0, 0);
-            CubeStage.Transform(2, Transformation.Translation, 0, -25, 0);
+            //CubeStage.Transform(2, Transformation.Translation, 0, -25, 0);
 
             CubeStage.Transform(3, Transformation.Rotation, -90, 0, 0);
-            CubeStage.Transform(3, Transformation.Translation, 0, 25, 0);
+            //CubeStage.Transform(3, Transformation.Translation, 0, 25, 0);
 
-            CubeStage.Transform(4, Transformation.Translation, 0, 0, 25);
+            //CubeStage.Transform(4, Transformation.Translation, 0, 0, 25);
 
-            CubeStage.Transform(5, Transformation.Translation, 0, 0, -25);
+            //CubeStage.Transform(5, Transformation.Translation, 0, 0, -25);
 
-            CubeStage.Transform(Transformation.Rotation, 0, 45, 0);
+            CubeStage.Transform(Transformation.Rotation, 45, 45, 0);
 
             Refrence.Add("Cube", CubeStage);
 
-            CubeStage.SetLightSource(new Point(0, 0, 0), System.Drawing.Color.White);
+            CubeStage.SetLightSource(new Point(0, 0, 80), System.Drawing.Color.White);
 
             updateStageSelectionBox();
         }
@@ -127,10 +146,19 @@ namespace Dimension.stub
         private void Test_Click(object sender, EventArgs e)
         {
             System.Drawing.Bitmap B = Refrence[StageSelector.SelectedItem.ToString()].Render();
+            if(StageSelector.SelectedItem.ToString().Equals("Cube"))
+            {
+                cubeTimer.Enabled = true;
+            }
             preview.Image = B;
             Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
         }
 
-
+        private void cubeTimer_Tick(object sender, EventArgs e)
+        {
+            Refrence["Cube"].Transform(Transformation.Rotation, 5, 5, 0);
+            preview.Image = Refrence[StageSelector.SelectedItem.ToString()].Render();
+            Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
+        }
     }
 }

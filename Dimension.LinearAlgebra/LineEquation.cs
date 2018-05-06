@@ -112,7 +112,7 @@ namespace Dimension.LinearAlgebra
                 }
                 else
                 {
-                    throw new Exception("Duplicate point exception");
+                    //throw new Exception("Duplicate point exception");
                 }
             }
         }

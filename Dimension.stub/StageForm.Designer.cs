@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StageForm));
             this.Render_btn = new System.Windows.Forms.Button();
             this.preview = new System.Windows.Forms.PictureBox();
             this.Logo_picBox = new System.Windows.Forms.PictureBox();
             this.StageSelector = new System.Windows.Forms.ComboBox();
+            this.cubeTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.preview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_picBox)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +78,12 @@
             this.StageSelector.Size = new System.Drawing.Size(190, 21);
             this.StageSelector.TabIndex = 3;
             // 
-            // Form1
+            // cubeTimer
+            // 
+            this.cubeTimer.Interval = 500;
+            this.cubeTimer.Tick += new System.EventHandler(this.cubeTimer_Tick);
+            // 
+            // StageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +95,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "StageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Project Dimension Diagnostic Utility";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -104,6 +111,7 @@
         private System.Windows.Forms.PictureBox preview;
         private System.Windows.Forms.PictureBox Logo_picBox;
         private System.Windows.Forms.ComboBox StageSelector;
+        private System.Windows.Forms.Timer cubeTimer;
     }
 }
 

@@ -103,7 +103,7 @@ namespace Dimension.Renderer
                         curPoint = curLine.calculateNextPoint(curPoint);
                         continue;
                     }
-                    Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, C);
+                    Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, Color.Black);
                     curPoint = curLine.calculateNextPoint(curPoint);
                 }
             }
