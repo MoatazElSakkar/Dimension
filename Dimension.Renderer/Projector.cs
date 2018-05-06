@@ -31,6 +31,7 @@ namespace Dimension.Renderer
         {
             //We quick sort by MaxZ for renderer's convenience and clipping in the future
             OuterSet.Sort();
+            OuterSet.Reverse();
             List<Structure> Sillhouettes = ProjectShadows(OuterSet);
             Projection stageShadow = new Projection();
             stageShadow.Sillhouette = Sillhouettes;
@@ -56,7 +57,7 @@ namespace Dimension.Renderer
                         {
                             P.z = 1;
                         }
-                        if (true)
+                        if (P.z!=1)
                         {
                             if (P.z != 2)
                             {
@@ -70,11 +71,11 @@ namespace Dimension.Renderer
                             v = (int)(P.y / P.z);
 
                         }
-                        //else
-                        //{
-                        //    u = (int)(P.x) / 2;
-                        //    v = (int)(P.y) / 2;
-                        //}
+                        else
+                        {
+                            u = (int)(P.x) / 2;
+                            v = (int)(P.y) / 2;
+                        }
 
                         v = v * -1;
 
