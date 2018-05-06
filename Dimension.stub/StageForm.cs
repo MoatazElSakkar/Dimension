@@ -113,7 +113,7 @@ namespace Dimension.stub
 
             //CubeStage.Transform(4, Transformation.Translation, 0, 0, 25);
 
-            //CubeStage.Transform(5, Transformation.Translation, 0, 0, -25);
+            CubeStage.Transform(5, Transformation.Translation, 0, 0, -100);
 
             CubeStage.Transform(Transformation.Rotation, 45, 45, 0);
 
