@@ -80,7 +80,6 @@
             // 
             // cubeTimer
             // 
-            this.cubeTimer.Interval = 500;
             this.cubeTimer.Tick += new System.EventHandler(this.cubeTimer_Tick);
             // 
             // StageForm
@@ -92,6 +91,7 @@
             this.Controls.Add(this.Logo_picBox);
             this.Controls.Add(this.preview);
             this.Controls.Add(this.Render_btn);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

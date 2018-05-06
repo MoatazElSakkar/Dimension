@@ -73,13 +73,6 @@ namespace Dimension.stub
                 new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
            }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink });
 
-            //CubeStage.addStructure(CubeFace);
-            //CubeStage.addStructure(CubeFace);
-            //CubeStage.addStructure(CubeFace);
-            //CubeStage.addStructure(CubeFace);
-            //CubeStage.addStructure(CubeFace);
-            //CubeStage.addStructure(CubeFace);
-
             CubeStage.addStructure(new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
                 new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
            }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink }));
@@ -120,6 +113,8 @@ namespace Dimension.stub
             Refrence.Add("Cube", CubeStage);
 
             CubeStage.SetLightSource(new Point(0, 0, 80), System.Drawing.Color.White);
+
+            CubeStage.StageBackcolor = System.Drawing.Color.Black;
 
             updateStageSelectionBox();
         }
