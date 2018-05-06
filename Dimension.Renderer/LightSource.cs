@@ -21,7 +21,9 @@ namespace Dimension.Renderer
         public LightSource(Point location)
         {
             Intensity = System.Drawing.Color.White;
-            Location = location;
+            Location.x = -location.x;
+            Location.y = -location.y;
+            Location.z = location.z;
         }
 
         public LightSource(System.Drawing.Color intensity, Point location)
@@ -30,12 +32,22 @@ namespace Dimension.Renderer
             Location = location;
         }
 
-        public void TuneStructureColorSet(Structure S)
+        //public void TuneStructureColorSet(Structure S)
+        //{
+        //    for (int i = 0; i < S.WireFrame.Count; i++)
+        //    {
+        //        S.StructureColor[i] = TuneColor(S.WireFrame[i], S.StructureColor[i]);
+        //    }
+        //}
+
+        public List<System.Drawing.Color> TuneStructureColorSet(Structure S)
         {
-            for(int i=0;i<S.WireFrame.Count;i++)
+            List<System.Drawing.Color> Outbound = new List<System.Drawing.Color>();
+            for (int i = 0; i < S.WireFrame.Count; i++)
             {
-                S.StructureColor[i]=TuneColor(S.WireFrame[i], S.StructureColor[i]);
+                Outbound.Add(TuneColor(S.WireFrame[i], S.StructureColor[i]));
             }
+            return Outbound;
         }
 
         public System.Drawing.Color TuneColor(Triangle T, System.Drawing.Color oldColor)
@@ -53,10 +65,12 @@ namespace Dimension.Renderer
             Point vectorFromLight = Location - centerOfGravity;
             vectorFromLight =  vectorFromLight / Point.getDistance(origin, vectorFromLight);
             float cosAngle = Point.dotProduct(vectorFromLight, normalVector);
-            if(cosAngle < 0) cosAngle = 0;
-            else if(cosAngle > 1) cosAngle = 1;
-            return System.Drawing.Color.FromArgb(newColor.A, (int)Math.Round(newColor.R * cosAngle), (int)Math.Round(newColor.G * cosAngle), (int)Math.Round(newColor.B * cosAngle));
+            cosAngle = Math.Abs(cosAngle);
+            if(cosAngle > 1) cosAngle = 1;
+            return System.Drawing.Color.FromArgb((int)Math.Round(newColor.R * cosAngle), (int)Math.Round(newColor.G * cosAngle), (int)Math.Round(newColor.B * cosAngle));
         }
 
     }
 }
+
+

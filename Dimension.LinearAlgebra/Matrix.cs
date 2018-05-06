@@ -80,7 +80,11 @@ namespace Dimension.LinearAlgebra
         {
             Rows = entryData.GetLength(0);
             Columns = entryData.GetLength(1);
-            MatData = entryData;
+            MatData = new float[Rows, Columns];
+
+            for (int i = 0; i < Rows; i++)
+                for (int j = 0; j < Columns; j++)
+                    MatData[i, j] = entryData[i, j];
         }
 
         public Matrix(Point i_point) //Entry as a Dimension Point

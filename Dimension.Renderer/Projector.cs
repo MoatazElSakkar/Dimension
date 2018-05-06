@@ -21,7 +21,7 @@ namespace Dimension.Renderer
 
         public Projector(List <Structure> a,Dictionary<int, Point> b,int W,int H)
         {
-            OuterSet = a;
+            OuterSet = a.ToList();
             Locations = b;
             stageWpx = W;
             stageHpx = H;
@@ -30,6 +30,7 @@ namespace Dimension.Renderer
         public Projection GeneratePorjection()
         {
             //We quick sort by MaxZ for renderer's convenience and clipping in the future
+
             OuterSet.Sort();
             List<Structure> Sillhouettes = ProjectShadows(OuterSet);
             Projection stageShadow = new Projection();
@@ -52,29 +53,28 @@ namespace Dimension.Renderer
                         #region WeakPrespective <Commented>
                         //Weak Prespective Projection algorithm (still untested on 3D)
                         int u, v;
-                        if (P.z == 0)
-                        {
-                            P.z = 1;
-                        }
-                        if (true)
-                        {
-                            if (P.z != 2)
-                            {
-                                P.z /= 2.0f;
-                            }
-                            else
-                            {
-                                P.z -= 0.5f;
-                            }
-                            u = (int)(P.x / P.z);
-                            v = (int)(P.y / P.z);
+                        float nZ = P.z;
 
-                        }
-                        //else
+
+                        
+                        //if (nZ < 1)
                         //{
-                        //    u = (int)(P.x) / 2;
-                        //    v = (int)(P.y) / 2;
+                        //    nZ = 1;
                         //}
+
+                        if (nZ < 100)
+                        {
+                            nZ = 2f / 3f;
+                        }
+                        else
+                        {
+                            nZ /= 100;
+                        }
+
+                           
+                            u = (int)(P.x / nZ);
+                            v = (int)(P.y / nZ);
+
 
                         v = v * -1;
 
@@ -121,10 +121,12 @@ namespace Dimension.Renderer
 
                         //nWireframeSegment.Add(new Point(u, v, 0));
                     }
-                    T.wireframeSegment=nWireframeSegment.ToArray();
-                    nBound.Add(T);
+                    nBound.Add(new Triangle(nWireframeSegment.ToArray(),T.ID));
                 }
-                Structure nS=S;
+                Structure nS=new Structure();
+                nS.ID = S.ID;
+                nS.StructureColor = S.StructureColor;
+                nS.CenterPoint = S.CenterPoint;
                 nS.WireFrame=nBound;
                 OutBound.Add(nS);
             }

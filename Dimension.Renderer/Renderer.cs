@@ -46,6 +46,46 @@ namespace Dimension.Renderer
             return Outbound;
         }
 
+        public Bitmap GenerateStageView(Projection input,List<Color> EntryColorList)
+        {
+            Outbound = new Bitmap(stageWpx, stageHpx);
+            for (int i = 0; i < stageWpx; i++)
+                for (int j = 0; j < stageHpx; j++)
+                    Outbound.SetPixel(i, j, Color.DarkBlue);
+            foreach (Structure S in input.Sillhouette)
+            {
+                for(int i=0;i<S.WireFrame.Count;i++)
+                {
+                    //Rendering Triangle Outline
+                    renderTriangleOutline(S.WireFrame[i], EntryColorList[i]);
+
+                    //Filling triangle
+                    fillFromVertix(S.WireFrame[i], EntryColorList[i]);
+                }
+            }
+            return Outbound;
+        }
+
+        public Bitmap GenerateStageView(Projection input, List<Color> EntryColorList,Color backC)
+        {
+            Outbound = new Bitmap(stageWpx, stageHpx);
+            for (int i = 0; i < stageWpx; i++)
+                for (int j = 0; j < stageHpx; j++)
+                    Outbound.SetPixel(i, j, backC);
+            foreach (Structure S in input.Sillhouette)
+            {
+                for (int i = 0; i < S.WireFrame.Count; i++)
+                {
+                    //Rendering Triangle Outline
+                    renderTriangleOutline(S.WireFrame[i], EntryColorList[i]);
+
+                    //Filling triangle
+                    fillFromVertix(S.WireFrame[i], EntryColorList[i]);
+                }
+            }
+            return Outbound;
+        }
+
         void renderTriangleOutline(Triangle T,Color C)
         {
             //Will fill in the lines between 2 points using
@@ -58,6 +98,11 @@ namespace Dimension.Renderer
                 Dimension.data.Point curPoint = T.wireframeSegment[i];
                 for (int j = 0; j < curLine.length; j++)
                 {
+                    if (curPoint.x >= stageWpx || curPoint.y >= stageHpx || curPoint.x < 0 || curPoint.y < 0)
+                    {
+                        curPoint = curLine.calculateNextPoint(curPoint);
+                        continue;
+                    }
                     Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, C);
                     curPoint = curLine.calculateNextPoint(curPoint);
                 }
@@ -109,6 +154,11 @@ namespace Dimension.Renderer
                 rasterPoint = RasterLine.calculateNextPoint(raster1);
                 for (int j = 0; j < RasterLine.length; j++)
                 {
+                    if (rasterPoint.x >= stageWpx || rasterPoint.y >= stageHpx || rasterPoint.x < 0 || rasterPoint.y < 0)
+                    {
+                        rasterPoint = RasterLine.calculateNextPoint(rasterPoint);
+                        continue;
+                    }
                     Outbound.SetPixel((int)rasterPoint.x, (int)rasterPoint.y, C);
                     rasterPoint = RasterLine.calculateNextPoint(rasterPoint);
                 }

@@ -31,6 +31,16 @@ namespace Dimension.data
             wireframeSegment = Entry;
         }
 
+        public Triangle(Point[] Entry,int i_ID)
+        {
+            if (!AssertCyclicFeature(Entry))
+            {
+                throw new Exception("Invalid Triangle intialization");
+            }
+            ID = i_ID;
+            wireframeSegment = Entry;
+        }
+
         bool AssertCyclicFeature(Point a,Point b,Point c)
         {
             //check if a b c are actually connected
