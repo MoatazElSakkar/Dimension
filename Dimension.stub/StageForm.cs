@@ -140,8 +140,14 @@ namespace Dimension.stub
 
         private void Test_Click(object sender, EventArgs e)
         {
+            if(StageSelector.SelectedItem.ToString().Equals("Cube"))
+            {
+                cubeTimer.Start();
+            } else
+            {
+                cubeTimer.Stop();
+            }
             System.Drawing.Bitmap B = Refrence[StageSelector.SelectedItem.ToString()].Render();
-            cubeTimer.Enabled = StageSelector.SelectedItem.ToString().Equals("Cube");
             preview.Image = B;
             Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
         }
@@ -149,7 +155,7 @@ namespace Dimension.stub
         private void cubeTimer_Tick(object sender, EventArgs e)
         {
             Refrence["Cube"].Transform(Transformation.Rotation, 5, 5, 0);
-            preview.Image = Refrence[StageSelector.SelectedItem.ToString()].Render();
+            preview.Image = Refrence["Cube"].Render();
             Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
         }
     }
