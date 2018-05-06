@@ -84,8 +84,8 @@ namespace Dimension.API
 
         public System.Drawing.Bitmap Render()
         {
-            //foreach (Structure S in stage.StageData)
-            //    L.TuneStructureColorSet(S);
+            foreach (Structure S in stage.StageData)
+                L.TuneStructureColorSet(S);
             Projector Projectex = new Projector(stage.StageData,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
             return Rendex.GenerateStageView(Projectex.GeneratePorjection());
         }

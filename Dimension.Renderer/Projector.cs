@@ -59,14 +59,14 @@ namespace Dimension.Renderer
                         }
                         if (P.z!=1)
                         {
-                            if (P.z != 2)
+                            if (true)
                             {
-                                P.z /= 2.0f;
+                                P.z /= 100f;
                             }
-                            else
-                            {
-                                P.z -= 0.5f;
-                            }
+                            //else
+                            //{
+                            //    P.z -= 0.5f;
+                            //}
                             u = (int)(P.x / P.z);
                             v = (int)(P.y / P.z);
 

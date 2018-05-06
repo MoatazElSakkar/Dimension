@@ -41,7 +41,7 @@ namespace Dimension.Renderer
         public System.Drawing.Color TuneColor(Triangle T, System.Drawing.Color oldColor)
         {
             System.Drawing.Color newColor = oldColor;
-            newColor = System.Drawing.Color.FromArgb(oldColor.A, (oldColor.R * Intensity.R + 254) / 255, (oldColor.G * Intensity.G + 254) / 255, (oldColor.B * Intensity.B + 254) / 255);
+            newColor = System.Drawing.Color.FromArgb((oldColor.R * Intensity.R + 254) / 255, (oldColor.G * Intensity.G + 254) / 255, (oldColor.B * Intensity.B + 254) / 255);
             Point normalVector = Point.crossProduct(T.wireframeSegment[0], T.wireframeSegment[1]);
             Point origin = new Point(0,0,0);
             Point centerOfGravity = new Point(0,0,0);
