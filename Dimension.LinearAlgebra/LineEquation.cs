@@ -115,7 +115,6 @@ namespace Dimension.LinearAlgebra
                     throw new Exception("Duplicate point exception");
                 }
             }
-
         }
 
         public Point calculateNextPoint(Point P)

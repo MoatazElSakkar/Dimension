@@ -60,7 +60,7 @@ namespace Dimension.data
         {
             float diff = getMaxZScore() - other.getMaxZScore();
             if(Math.Abs(diff) <= 1e-9) return 0;
-            return diff < 0?-1:1;
+            return diff < 0?1:-1;
         }
 
         //Lists to track transformations - easier to work with when applying textures

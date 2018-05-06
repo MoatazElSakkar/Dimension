@@ -26,41 +26,22 @@ namespace Dimension.stub
             //Test Case 1 the Red triangle
             Stage TriangleStage = new Stage();
             List<Point> TrianglePointset = new List<Point>();
-            TrianglePointset.Add(new Point(0, 200, 1));
-            TrianglePointset.Add(new Point(-200, -200, 1));
-            TrianglePointset.Add(new Point(200, -200, 1));
+            TrianglePointset.Add(new Point(0, 200, 120));
+            TrianglePointset.Add(new Point(-200, -200,120));
+            TrianglePointset.Add(new Point(200, -200, 120));
             StructureData Triangle_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(TrianglePointset[0], TrianglePointset[1], TrianglePointset[2]) },new System.Drawing.Color[]{System.Drawing.Color.Red});
             int triangleID = TriangleStage.addStructure(Triangle_SD);
+            LightSource RedTriangleLight = new LightSource(System.Drawing.Color.White, new Point(0, 100 , 100));
             Refrence.Add("Red Triangle", TriangleStage);
 
             //Test Case 2 the Pyramid of Giza
             Stage PyramidOfGiza = new Stage();
-            //List<Point> PyramidOfGizaPointSet = new List<Point>();
-            //PyramidOfGizaPointSet.Add(new Point(-25, 200, 1));
-            //PyramidOfGizaPointSet.Add(new Point(-400, -200, 3));
-            //PyramidOfGizaPointSet.Add(new Point(150, -200, 2));
-            //PyramidOfGizaPointSet.Add(new Point(350, -200, 4));
-
-            //StructureData Giza_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Khaki });
-            //StructureData Giza_Khfraa = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Khaki });
-            //StructureData Giza_Mankura = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Khaki });
-            //int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_SD);
-            //PyramidOfGiza.addStructure(Giza_Khfraa);
-            //PyramidOfGiza.addStructure(Giza_Mankura);
-            //PyramidOfGiza.SetLightSource(new Point(10, 0, 1), System.Drawing.Color.White);
-
-            //PyramidOfGiza.Transform(0, Transformation.Translation, -100, -20, 1);
-            //PyramidOfGiza.Transform(1, Transformation.Translation, -1000, 80, 6);
-            //PyramidOfGiza.Transform(2, Transformation.Translation, -400, 30, 3);
-
-            //Refrence.Add("Pyramid Of Giza", PyramidOfGiza);
-
 
             List<Point> PyramidOfGizaPointSet = new List<Point>();
-            PyramidOfGizaPointSet.Add(new Point(-25, 200, 100));
-            PyramidOfGizaPointSet.Add(new Point(-400, -200, 300));
-            PyramidOfGizaPointSet.Add(new Point(150, -200, 200));
-            PyramidOfGizaPointSet.Add(new Point(350, -200, 400));
+            PyramidOfGizaPointSet.Add(new Point(-25, 200, 60));
+            PyramidOfGizaPointSet.Add(new Point(-400, -200, 200));
+            PyramidOfGizaPointSet.Add(new Point(150, -200, 100));
+            PyramidOfGizaPointSet.Add(new Point(350, -200, 240));
 
             StructureData Giza_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
             StructureData Giza_Khfraa = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
@@ -68,11 +49,13 @@ namespace Dimension.stub
             int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_SD);
             PyramidOfGiza.addStructure(Giza_Khfraa);
             PyramidOfGiza.addStructure(Giza_Mankura);
-            PyramidOfGiza.SetLightSource(new Point(-1000, 100, 300), System.Drawing.Color.White);
+            PyramidOfGiza.SetLightSource(new Point(100, 100, 80), System.Drawing.Color.White);
 
             PyramidOfGiza.Transform(0, Transformation.Translation, -100, -20, 100);
-            PyramidOfGiza.Transform(1, Transformation.Translation, -1000, 80, 600);
-            PyramidOfGiza.Transform(2, Transformation.Translation, -400, 30, 300);
+            PyramidOfGiza.Transform(1, Transformation.Translation, -1200, 80, 600);
+            PyramidOfGiza.Transform(2, Transformation.Translation, -500, 30, 300);
+
+            PyramidOfGiza.StageBackcolor = System.Drawing.Color.LightBlue;
 
             Refrence.Add("Pyramid Of Giza", PyramidOfGiza);
 
@@ -80,8 +63,46 @@ namespace Dimension.stub
             //Use the code above as a template
 
             //Test Case 3 the Dimension Logo
+            Stage CubeStage = new Stage();
+            List<Point> CubePoints = new List<Point>();
+            CubePoints.Add(new Point(50, 50, 100));
+            CubePoints.Add(new Point(-50,50,100));
+            CubePoints.Add(new Point(-50, -50, 100));
+            CubePoints.Add(new Point(50,-50 , 100));
 
 
+            StructureData CubeFace=new StructureData(new Point(0,0,0),new Triangle[]{new Triangle(CubePoints[0],CubePoints[1],CubePoints[2]),
+                new Triangle(CubePoints[0],CubePoints[2],CubePoints[3])
+           }, new System.Drawing.Color[] {System.Drawing.Color.LightPink, System.Drawing.Color.LightPink });
+
+            CubeStage.addStructure(CubeFace);
+            CubeStage.addStructure(CubeFace);
+            CubeStage.addStructure(CubeFace);
+            CubeStage.addStructure(CubeFace);
+            CubeStage.addStructure(CubeFace);
+            CubeStage.addStructure(CubeFace);
+
+            CubeStage.Transform(0, Transformation.Rotation, 0, 90, 0);
+            CubeStage.Transform(0, Transformation.Translation, 25, 0, 0);
+
+            CubeStage.Transform(1, Transformation.Rotation, 0, -90, 0);
+            CubeStage.Transform(1, Transformation.Translation, -25, 0, 0);
+
+            CubeStage.Transform(2, Transformation.Rotation, 90, 0, 0);
+            CubeStage.Transform(2, Transformation.Translation, 0, -25, 0);
+
+            CubeStage.Transform(3, Transformation.Rotation, -90, 0, 0);
+            CubeStage.Transform(3, Transformation.Translation, 0, 25, 0);
+
+            CubeStage.Transform(4, Transformation.Translation, 0, 0, 25);
+
+            CubeStage.Transform(5, Transformation.Translation, 0, 0, -25);
+
+            CubeStage.Transform(Transformation.Rotation, 0, 45, 0);
+
+            Refrence.Add("Cube", CubeStage);
+
+            CubeStage.SetLightSource(new Point(0, 0, 0), System.Drawing.Color.White);
 
             updateStageSelectionBox();
         }
@@ -109,7 +130,7 @@ namespace Dimension.stub
         {
             System.Drawing.Bitmap B = Refrence[StageSelector.SelectedItem.ToString()].Render();
             preview.Image = B;
-
+            Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
         }
 
 

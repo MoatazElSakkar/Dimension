@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-
 using Dimension.data;
 using Dimension.simulator;
 using Dimension.Renderer;
@@ -50,22 +49,28 @@ namespace Dimension.API
         Simulator Simulex = new Simulator();
         Renderer.Renderer Rendex = new Renderer.Renderer(720,360);
 
+        public System.Drawing.Color StageBackcolor=System.Drawing.Color.Blue;
+
         public int addStructure(StructureData i_StructData)
         {
             i_StructData.ID = stage.curID;
             stage.StageData.Add(fromStructureData(i_StructData));
+
             return stage.curID++;
         }
 
         public void Transform(Transformation T, params object[] value) //Rotation:angle, Translation point, scaling scalar xD
         {
-            if (stage.StageData.Count == 1) //main case
+            if (stage.StageData.Count == 1)
             {
-                stage.StageData[0]=Simulex.SimulateTransformation(stage.StageData[0], T, value);
+                stage.StageData[0] = Simulex.SimulateTransformation(stage.StageData[0], T, value);
             }
-            else if (stage.StageData.Count > 1) //Optional
+            else if (stage.StageData.Count > 1)
             {
-                //stage = Simulex.SimulateTransformation(stage, T, value);
+                foreach (Structure S in stage.StageData)
+                {
+                    Simulex.SimulateTransformation(S,T,value);
+                }
             }
             else
             {
@@ -84,21 +89,31 @@ namespace Dimension.API
 
         public System.Drawing.Bitmap Render()
         {
+
+            List<System.Drawing.Color> nList=new List<System.Drawing.Color>();
             foreach (Structure S in stage.StageData)
-                L.TuneStructureColorSet(S);
-            Projector Projectex = new Projector(stage.StageData,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
-            return Rendex.GenerateStageView(Projectex.GeneratePorjection());
+            {
+               nList.AddRange(L.TuneStructureColorSet(S));
+            }
+
+            Projector Projectex = new Projector(stage.StageData.ToList(),stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
+
+            return Rendex.GenerateStageView(Projectex.GeneratePorjection(), nList,StageBackcolor);
         }
 
         public void SetLightSource(Point i_p, System.Drawing.Color i_Intensity)
         {
-            L.Location = i_p;
+            L.Location.x = -i_p.x;
+            L.Location.y = -i_p.y;
+            L.Location.z = i_p.z;
+            
             L.Intensity = i_Intensity;
         }
 
         public void Reintialize()
         {
             Rendex = new Renderer.Renderer(720, 360);
+            
         }
     }
 }
