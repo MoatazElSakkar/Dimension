@@ -43,24 +43,22 @@ namespace Dimension.stub
             PyramidOfGizaPointSet.Add(new Point(150, -200, 100));
             PyramidOfGizaPointSet.Add(new Point(350, -200, 240));
 
-            StructureData Giza_SD = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
+            StructureData Giza_Khofo = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
             StructureData Giza_Khfraa = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
             StructureData Giza_Mankura = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold});
-            int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_SD);
+            int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_Khofo);
             PyramidOfGiza.addStructure(Giza_Khfraa);
             PyramidOfGiza.addStructure(Giza_Mankura);
+
             PyramidOfGiza.SetLightSource(new Point(100, 100, 80), System.Drawing.Color.White);
 
-            PyramidOfGiza.Transform(0, Transformation.Translation, -100, -20, 100);
-            PyramidOfGiza.Transform(1, Transformation.Translation, -1200, 80, 600);
-            PyramidOfGiza.Transform(2, Transformation.Translation, -500, 30, 300);
+            PyramidOfGiza.Transform(0, Transformation.Translation, -100, -45, 100);
+            PyramidOfGiza.Transform(1, Transformation.Translation, -1200, 55, 600);
+            PyramidOfGiza.Transform(2, Transformation.Translation, -500, 10, 300);
 
             PyramidOfGiza.StageBackcolor = System.Drawing.Color.LightBlue;
 
             Refrence.Add("Pyramid Of Giza", PyramidOfGiza);
-
-
-            //Use the code above as a template
 
             //Test Case 3 the Dimension Logo
             Stage CubeStage = new Stage();
