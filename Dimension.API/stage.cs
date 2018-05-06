@@ -91,12 +91,14 @@ namespace Dimension.API
         {
 
             List<System.Drawing.Color> nList=new List<System.Drawing.Color>();
-            foreach (Structure S in stage.StageData)
+            List<Structure> stageDate = stage.StageData.ToList();
+            stageDate.Sort();
+            foreach (Structure S in stageDate)
             {
                nList.AddRange(L.TuneStructureColorSet(S));
             }
 
-            Projector Projectex = new Projector(stage.StageData.ToList(),stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
+            Projector Projectex = new Projector(stageDate,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);
 
             return Rendex.GenerateStageView(Projectex.GeneratePorjection(), nList,StageBackcolor);
         }

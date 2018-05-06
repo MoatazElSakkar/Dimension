@@ -72,15 +72,16 @@ namespace Dimension.Renderer
             for (int i = 0; i < stageWpx; i++)
                 for (int j = 0; j < stageHpx; j++)
                     Outbound.SetPixel(i, j, backC);
+            int colorIndex = 0;
             foreach (Structure S in input.Sillhouette)
             {
-                for (int i = 0; i < S.WireFrame.Count; i++)
+                for (int i = 0;i < S.WireFrame.Count; i++, colorIndex++)
                 {
                     //Rendering Triangle Outline
-                    renderTriangleOutline(S.WireFrame[i], EntryColorList[i]);
+                    renderTriangleOutline(S.WireFrame[i], EntryColorList[colorIndex]);
 
                     //Filling triangle
-                    fillFromVertix(S.WireFrame[i], EntryColorList[i]);
+                    fillFromVertix(S.WireFrame[i], EntryColorList[colorIndex]);
                 }
             }
             return Outbound;

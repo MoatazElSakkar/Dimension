@@ -146,10 +146,7 @@ namespace Dimension.stub
         private void Test_Click(object sender, EventArgs e)
         {
             System.Drawing.Bitmap B = Refrence[StageSelector.SelectedItem.ToString()].Render();
-            if(StageSelector.SelectedItem.ToString().Equals("Cube"))
-            {
-                cubeTimer.Enabled = true;
-            }
+            cubeTimer.Enabled = StageSelector.SelectedItem.ToString().Equals("Cube");
             preview.Image = B;
             Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
         }
