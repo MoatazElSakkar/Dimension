@@ -35,6 +35,7 @@
             this.Logo_picBox = new System.Windows.Forms.PictureBox();
             this.StageSelector = new System.Windows.Forms.ComboBox();
             this.cubeTimer = new System.Windows.Forms.Timer(this.components);
+            this.pyramidsTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.preview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_picBox)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +83,12 @@
             // 
             this.cubeTimer.Tick += new System.EventHandler(this.cubeTimer_Tick);
             // 
+            // pyramidsTimer
+            // 
+            this.pyramidsTimer.Interval = 750;
+            this.pyramidsTimer.Tag = "0";
+            this.pyramidsTimer.Tick += new System.EventHandler(this.pyramidsTimer_Tick);
+            // 
             // StageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,6 +119,7 @@
         private System.Windows.Forms.PictureBox Logo_picBox;
         private System.Windows.Forms.ComboBox StageSelector;
         private System.Windows.Forms.Timer cubeTimer;
+        private System.Windows.Forms.Timer pyramidsTimer;
     }
 }
 

@@ -43,15 +43,30 @@ namespace Dimension.stub
             PyramidOfGizaPointSet.Add(new Point(150, -200, 100));
             PyramidOfGizaPointSet.Add(new Point(350, -200, 240));
 
-            StructureData Giza_Khofo = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
-            StructureData Giza_Khfraa = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold });
-            StructureData Giza_Mankura = new StructureData(new data.Point(0, 0, 0), new Triangle[] { new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]), new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3]) }, new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold});
-            int PyramidOfGizaID = PyramidOfGiza.addStructure(Giza_Khofo);
+            StructureData Giza_Khofo = new StructureData(new data.Point(0, 0, 0), new Triangle[] {
+                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]),
+                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3])},
+                new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold });
+            StructureData Giza_Khfraa = new StructureData(new data.Point(0, 0, 0), new Triangle[] {
+                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]),
+                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3])},
+                new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold });
+            StructureData Giza_Mankura = new StructureData(new data.Point(0, 0, 0), new Triangle[] {
+                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]),
+                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3])},
+                new System.Drawing.Color[] { System.Drawing.Color.Goldenrod, System.Drawing.Color.Goldenrod, System.Drawing.Color.Goldenrod, System.Drawing.Color.Goldenrod });
+            PyramidOfGiza.addStructure(Giza_Khofo);
             PyramidOfGiza.addStructure(Giza_Khfraa);
             PyramidOfGiza.addStructure(Giza_Mankura);
 
             PyramidOfGiza.SetLightSource(new Point(100, 100, 80), System.Drawing.Color.White);
-
+            
             PyramidOfGiza.Transform(0, Transformation.Translation, -100, -45, 100);
             PyramidOfGiza.Transform(1, Transformation.Translation, -1200, 55, 600);
             PyramidOfGiza.Transform(2, Transformation.Translation, -500, 10, 300);
@@ -147,6 +162,13 @@ namespace Dimension.stub
             {
                 cubeTimer.Stop();
             }
+            if(StageSelector.SelectedItem.ToString().Equals("Pyramid Of Giza"))
+            {
+                pyramidsTimer.Start();
+            } else
+            {
+                pyramidsTimer.Stop();
+            }
             System.Drawing.Bitmap B = Refrence[StageSelector.SelectedItem.ToString()].Render();
             preview.Image = B;
             Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
@@ -156,7 +178,25 @@ namespace Dimension.stub
         {
             Refrence["Cube"].Transform(Transformation.Rotation, 5, 5, 0);
             preview.Image = Refrence["Cube"].Render();
-            Refrence[StageSelector.SelectedItem.ToString()].Reintialize();
+            Refrence["Cube"].Reintialize();
+        }
+
+        private void pyramidsTimer_Tick(object sender, EventArgs e)
+        {
+            Stage PyramidOfGiza = Refrence["Pyramid Of Giza"];
+            if(pyramidsTimer.Tag.ToString().Equals("1"))
+            {
+                PyramidOfGiza.Transform(Transformation.Scaling, 0.8, 0.8, 1);
+                pyramidsTimer.Tag = "0";
+
+            } else
+            {
+                PyramidOfGiza.Transform(Transformation.Scaling, 1.25, 1.25, 1);
+                pyramidsTimer.Tag = "1";
+            }
+            Refrence["Pyramid Of Giza"] = PyramidOfGiza;
+            preview.Image = Refrence["Pyramid Of Giza"].Render();
+            Refrence["Pyramid Of Giza"].Reintialize();
         }
     }
 }
