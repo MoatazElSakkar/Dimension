@@ -141,6 +141,30 @@ namespace Dimension.LinearAlgebra
             return new Point(nX, nY, 0);
         }
 
+        public Point calculateOuterPoint(Point P)
+        {
+            float nY, nX;
+            if (!vertical)
+            {
+                if (P.x == FinalPoint.x)
+                {
+                    return P;
+                }
+                nX = P.x + direction;
+                nY = P.y;
+            }
+            else
+            {
+                if (P.y == FinalPoint.y)
+                {
+                    return P;
+                }
+                nY = P.y + direction;
+                nX = P.x;
+            }
+            return new Point(nX, nY, 0);
+        }
+
         float Map(float i)
         {
             return i * Slope + intercept;

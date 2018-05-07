@@ -66,12 +66,12 @@ namespace Dimension.Renderer
             return Outbound;
         }
 
-        public Bitmap GenerateStageView(Projection input, List<Color> EntryColorList,Color backC)
+        public Bitmap GenerateStageView(Projection input, List<Color> EntryColorList,Color stageC)
         {
             Outbound = new Bitmap(stageWpx, stageHpx);
             for (int i = 0; i < stageWpx; i++)
                 for (int j = 0; j < stageHpx; j++)
-                    Outbound.SetPixel(i, j, backC);
+                    Outbound.SetPixel(i, j, stageC);
             int colorIndex = 0;
             foreach (Structure S in input.Sillhouette)
             {
@@ -104,7 +104,8 @@ namespace Dimension.Renderer
                         curPoint = curLine.calculateNextPoint(curPoint);
                         continue;
                     }
-                    Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, Color.Black);
+                    Outbound.SetPixel((int)curPoint.x, (int)curPoint.y, C);
+                    Dimension.data.Point Outer=curLine.calculateOuterPoint(curPoint);
                     curPoint = curLine.calculateNextPoint(curPoint);
                 }
             }
