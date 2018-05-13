@@ -40,7 +40,7 @@ namespace Dimension.API
                 S.StructureColor.Add(i_struct.StructureColor[i]);
             }
             S.ID = LocalID++;
-            //S.updateCenterPoint();
+            S.updateCenterPoint();
             return S;
         } //converts structure data to structure
 
@@ -95,7 +95,7 @@ namespace Dimension.API
             stageDate.Sort();
             foreach (Structure S in stageDate)
             {
-               nList.AddRange(L.TuneStructureColorSet(S));
+               nList.AddRange(L.TuneStructureColorSet(S,S.CenterPoint));
             }
 
             Projector Projectex = new Projector(stageDate,stage.Locations,Rendex.stageWpx,Rendex.stageHpx);

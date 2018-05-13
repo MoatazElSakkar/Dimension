@@ -38,16 +38,20 @@ namespace Dimension.stub
             Stage PyramidOfGiza = new Stage();
 
             List<Point> PyramidOfGizaPointSet = new List<Point>();
-            PyramidOfGizaPointSet.Add(new Point(-25, 200, 60));
-            PyramidOfGizaPointSet.Add(new Point(-400, -200, 200));
-            PyramidOfGizaPointSet.Add(new Point(150, -200, 100));
-            PyramidOfGizaPointSet.Add(new Point(350, -200, 240));
+            PyramidOfGizaPointSet.Add(new Point(0, 100, 50));
+
+            PyramidOfGizaPointSet.Add(new Point(-100, -100, 100));
+            PyramidOfGizaPointSet.Add(new Point(100, -100, 100));
+
+            PyramidOfGizaPointSet.Add(new Point(-100, -100, 200));
+
+            PyramidOfGizaPointSet.Add(new Point(100, -100, 200));
 
             StructureData Giza_Khofo = new StructureData(new data.Point(0, 0, 0), new Triangle[] {
-                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
-                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
                 new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]),
-                new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3])},
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[4]),
+                new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3], PyramidOfGizaPointSet[4])},
                 new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold });
             StructureData Giza_Khfraa = new StructureData(new data.Point(0, 0, 0), new Triangle[] {
                 new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
@@ -60,16 +64,17 @@ namespace Dimension.stub
                 new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[3]),
                 new Triangle(PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[1], PyramidOfGizaPointSet[2]),
                 new Triangle(PyramidOfGizaPointSet[2], PyramidOfGizaPointSet[0], PyramidOfGizaPointSet[3])},
-                new System.Drawing.Color[] { System.Drawing.Color.Goldenrod, System.Drawing.Color.Goldenrod, System.Drawing.Color.Goldenrod, System.Drawing.Color.Goldenrod });
+                new System.Drawing.Color[] { System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold, System.Drawing.Color.Gold });
             PyramidOfGiza.addStructure(Giza_Khofo);
             PyramidOfGiza.addStructure(Giza_Khfraa);
             PyramidOfGiza.addStructure(Giza_Mankura);
 
             PyramidOfGiza.SetLightSource(new Point(100, 100, 80), System.Drawing.Color.White);
-            
-            PyramidOfGiza.Transform(0, Transformation.Translation, -100, -45, 100);
-            PyramidOfGiza.Transform(1, Transformation.Translation, -1200, 55, 600);
-            PyramidOfGiza.Transform(2, Transformation.Translation, -500, 10, 300);
+
+            PyramidOfGiza.Transform(1, Transformation.Translation, -110, 10, 100);
+            PyramidOfGiza.Transform(2, Transformation.Translation, -300, 15, 200);
+
+            PyramidOfGiza.Transform(Transformation.Rotation, 45, 0, 0);
 
             PyramidOfGiza.StageBackcolor = System.Drawing.Color.LightBlue;
 
@@ -125,9 +130,9 @@ namespace Dimension.stub
 
             CubeStage.Transform(Transformation.Rotation, 45, 45, 0);
 
-            Refrence.Add("Cube", CubeStage);
+            Refrence.Add("Dimension Logo Cube", CubeStage);
 
-            CubeStage.SetLightSource(new Point(0, 0, 80), System.Drawing.Color.White);
+            CubeStage.SetLightSource(new Point(0, 0, 80), System.Drawing.Color.WhiteSmoke);
 
             CubeStage.StageBackcolor = System.Drawing.Color.Black;
 
@@ -155,7 +160,7 @@ namespace Dimension.stub
 
         private void Test_Click(object sender, EventArgs e)
         {
-            if(StageSelector.SelectedItem.ToString().Equals("Cube"))
+            if (StageSelector.SelectedItem.ToString().Equals("Dimension Logo Cube"))
             {
                 cubeTimer.Start();
             } else
@@ -176,25 +181,14 @@ namespace Dimension.stub
 
         private void cubeTimer_Tick(object sender, EventArgs e)
         {
-            Refrence["Cube"].Transform(Transformation.Rotation, 5, 5, 0);
-            preview.Image = Refrence["Cube"].Render();
-            Refrence["Cube"].Reintialize();
+            Refrence["Dimension Logo Cube"].Transform(Transformation.Rotation, 0, 5, 0);
+            preview.Image = Refrence["Dimension Logo Cube"].Render();
+            Refrence["Dimension Logo Cube"].Reintialize();
         }
 
         private void pyramidsTimer_Tick(object sender, EventArgs e)
         {
-            Stage PyramidOfGiza = Refrence["Pyramid Of Giza"];
-            if(pyramidsTimer.Tag.ToString().Equals("1"))
-            {
-                PyramidOfGiza.Transform(Transformation.Scaling, 0.8, 0.8, 1);
-                pyramidsTimer.Tag = "0";
-
-            } else
-            {
-                PyramidOfGiza.Transform(Transformation.Scaling, 1.25, 1.25, 1);
-                pyramidsTimer.Tag = "1";
-            }
-            Refrence["Pyramid Of Giza"] = PyramidOfGiza;
+            Refrence["Pyramid Of Giza"].Transform(Transformation.Rotation, 0, 5, 1);
             preview.Image = Refrence["Pyramid Of Giza"].Render();
             Refrence["Pyramid Of Giza"].Reintialize();
         }

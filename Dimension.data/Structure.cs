@@ -43,7 +43,20 @@ namespace Dimension.data
 
         public void updateCenterPoint() //assigns the average of all points to centerPoint
         {
-            throw new NotImplementedException();
+            Point Petra = new Point(0,0,0);
+            int Count = 0;
+
+            foreach (Triangle T in WireFrame)
+            {
+                foreach (Point P in T.wireframeSegment)
+                {
+                    Petra.x += P.x;
+                    Petra.y += P.y;
+                    Petra.z += P.z;
+                    Count++;
+                }
+            }
+            CenterPoint = Petra;
         }
 
         public virtual int bind(object S) //You create a shape/Bound you get a refrence ID

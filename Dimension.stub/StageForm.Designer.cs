@@ -85,7 +85,6 @@
             // 
             // pyramidsTimer
             // 
-            this.pyramidsTimer.Interval = 750;
             this.pyramidsTimer.Tag = "0";
             this.pyramidsTimer.Tick += new System.EventHandler(this.pyramidsTimer_Tick);
             // 
